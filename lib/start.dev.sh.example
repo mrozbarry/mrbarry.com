@@ -1,0 +1,9 @@
+#!/bin/sh
+
+GITHUB_TOKEN="your_github_token_here"
+WEBSITE_TITLE="MrOzBarry's Super Simple Portfolio Website"
+WEBSITE_SUBTITLE="Software Developer"
+GRAVATAR_EMAIL="your_email@here.com"
+
+npm run webpack:development
+

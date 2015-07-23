@@ -1,0 +1,29 @@
+{
+  "name": "Github Portfolio Website",
+  "description": "A simple and elegant way to show off your github projects",
+  "website": "http://mrbarry.com",
+  "success_url": "/index.html",
+  "addons": [],
+  "env": {
+    "NODE_ENV": "production",
+    "WEBSITE_TITLE": {
+      "description": "Main title of your website.  Probably your name.",
+      "value": ""
+    },
+    "WEBSITE_SUBTITLE": {
+      "description": "Main sub-title of your website. Probably your general job description.",
+      "value": ""
+    },
+    "GRAVATAR_EMAIL": {
+      "description": "Your gravatar email address.  If you don't have one, create one.  Now you have a cute little picture."
+      "value": ""
+    },
+    "GITHUB_TOKEN": {
+      "description": "Your github API token.  Should be all Read-Only flags (or at least enough to list and see contents of your public repos)",
+      "value": ""
+    },
+  },
+  "scripts": {
+    "postdeploy": "npm run webpack:production:precompile"
+  }
+}
