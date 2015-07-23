@@ -6,32 +6,39 @@
 
   "dependencies": {
     "github-api": "^0.10.6",
-    "webpack": "^1.5.1"
-  },
-
-  "devDependencies": {
-    "coffee-loader": "^0.7.2",
-    "coffee-script": "^1.8.0",
     "lodash": "^3.1.0",
-    "moment": "^2.10.3",
-    "moment-timezone": "^0.4.0",
+    "bemmer-node": "^0.1.2",
+
+    "webpack": "^1.5.1",
+    "font-awesome-webpack": "^0.0.3",
+
+    "coffee-loader": "^0.7.2",
     "react": "^0.13.3",
     "react-mini-router": "^1.1.6",
-    "node-sass": "^3.1.2",
+
     "sass-loader": "^1.0.2",
     "style-loader": "^0.8.3",
     "css-loader": "^0.9.1",
-    "bemmer-node": "^0.1.2",
-    "font-awesome-webpack": "^0.0.3",
     "file-loader": "^0.8.4",
     "url-loader": "^0.5.6",
+
+    "express": "~4.7.2",
+    "morgan": "~1.2.2",
+    "body-parser": "~1.5.2"
+  },
+
+  "devDependencies": {
+    "coffee-script": "^1.8.0",
+    "node-sass": "^3.1.2",
     "webpack-dev-server": "^1.7.0"
   },
+
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "webpack:development": "webpack-dev-server --devtool eval --progress --colors --host 0.0.0.0",
     "webpack:production:precompile": "webpack"
   },
+
   "author": "Alex Barry",
   "license": "GPLv2"
 }

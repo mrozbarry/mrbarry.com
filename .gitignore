@@ -1,3 +1,9 @@
 node_modules
 start.dev.sh
 start.prod.sh
+public/*.svg
+public/*.ttf
+public/*.woff
+public/*.woff2
+public/*.eot
+public/*.js

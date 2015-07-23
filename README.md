@@ -1,5 +1,8 @@
 # Stupid Simple Software Portfolio Website
-## Using as little resources as possible
+
+(Using as little resources as possible)
+
+**IMPORANT:** This is not production-ready yet!
 
 # Getting Started
 
