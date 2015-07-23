@@ -36,7 +36,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "webpack:development": "webpack-dev-server --devtool eval --progress --colors --host 0.0.0.0",
-    "webpack:production:precompile": "webpack"
+    "webpack:production:precompile": "webpack",
+    "start": "node index.js"
   },
 
   "author": "Alex Barry",
