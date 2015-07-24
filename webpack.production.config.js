@@ -1,21 +1,14 @@
-var Webpack = require("webpack"),
+var Webpack = require('webpack'),
     path = require('path'),
     buildPath = path.resolve(__dirname, 'public', 'build'),
-    mainPath = path.resolve(__dirname, 'scripts', 'main.js');
+    mainPath = path.resolve(__dirname, 'scripts', 'main.js')
 
 module.exports = {
-  context: __dirname,
-  devtool: 'eval-source-map',
-  entry: [
-    "font-awesome-webpack!./font-awesome.config.js",
-    "webpack/hot/dev-server",
-    "webpack-dev-server/client?http://localhost:8080",
-    mainPath
-  ],
+  devtool: 'source-map',
+  entry: mainPath,
   output: {
     path: buildPath,
-    filename: "bundle.js",
-    publicPath: "/build/"
+    filename: "bundle.js"
   },
 
   module: {
@@ -26,16 +19,18 @@ module.exports = {
       { test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file-loader" }
     ]
   },
+
   resolve: {
     extensions: ["", ".js", ".coffee", ".sass"],
   },
+
   plugins: [
     new Webpack.ProvidePlugin({
       "_": "lodash",
       "React": "react/addons",
       "RouterMini": "react-mini-router",
-      "Bemmer": "bemmer-node/bemmer-class"
+      "Bemmer": "bemmer-node/bemmer-class",
+      "Github": "github-api",
     }),
-    new Webpack.HotModuleReplacementPlugin()
   ]
 };
