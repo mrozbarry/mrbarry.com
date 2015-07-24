@@ -13,7 +13,7 @@ var express = require('express'),
 
 app.use(express.static(publicPath));
 
-require('./routes/github')(app);
+require('./config/routes/github')(app);
 
 if (!isProduction) {
   var bundle = require('./server/bundle.js');
