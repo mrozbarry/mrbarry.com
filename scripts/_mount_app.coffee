@@ -1,8 +1,8 @@
 
-ProjectList = require('./main/components/projects/list')
+Index = require('./main/views/index')
 
 React.render(
-  ProjectList(null)
-  document.getElementById('projects')
+  Index(null)
+  document.getElementById('root')
 )
 

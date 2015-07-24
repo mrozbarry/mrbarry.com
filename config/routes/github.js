@@ -2,19 +2,13 @@
 var Github = require('github-api');
 
 var _ = require('lodash')
-var allowedOwners = ['mrozbarry', 'pairshaped', 'whatisinternet'];
+var allowedOwners = ['mrozbarry', 'pairshaped'];
 
 function getOwner(ownerName, res) {
   if (_.contains(allowedOwners, ownerName)) return true;
 
   res.status(404).send('404 - Resource not found!');
   return false;
-}
-
-function getRepo(ownerName, repoName, res) {
-  if (getOwnerName(ownerName, res)) {
-  }
-  return false
 }
 
 module.exports = function(app) {
@@ -25,31 +19,12 @@ module.exports = function(app) {
 
   var me = github.getUser()
 
-  app.param('repo_name', function(req, res, next, repo_name) {
-    repository = new Github.Repository({
-      name: res.github,
-      user: me.login
-    })
-
-    repository.contents('master', 'showoff.json', function(err, showoff) {
-      if (err) {
-        res.status(404).send('Not found');
-        return next(new Error('404 - Repository not found!'));
-      }
-      req.showoff = JSON.parse(showoff) || {}
-
-      next();
-    });
-  });
-
   app.get('/repos.json', function(req, res) {
-
     me.repos(function(err, repos) {
       if (err) {
         res.status(404).send(JSON.stringify(err));
         return;
       }
-      console.log('TODO: Finish config/routes/github.js');
       res.setHeader('Content-Type', 'application/json');
       res.send(JSON.stringify(repos));
     });
@@ -70,11 +45,10 @@ module.exports = function(app) {
     var repoOwner = req.params.repo_owner;
     var repoName = req.params.repo_name;
 
-    if (getRepo(repoOwner, repoName, res)) {
+    if (getOwner(repoOwner, res)) {
       res.setHeader('Content-Type', 'application/json');
       var repository = github.getRepo(repoOwner, repoName);
-      repository.contents('master', '/', function(err, contents){
-        if (err) return next(err);
+      repository.contents('master', '', function(err, contents){
         res.send(JSON.stringify(contents));
       });
     }

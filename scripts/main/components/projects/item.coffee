@@ -1,3 +1,4 @@
+require('../../../../assets/styles/main/components/project.sass')
 
 {div, h3, h5, a, i} = React.DOM
 
@@ -17,11 +18,11 @@ module.exports = React.createFactory React.createClass
         h5 className: bem.with(element: 'name-description'), project.description
 
       div className: bem.with(element: 'actions'),
-        a
-          className: bem.with(element: 'actions-link')
-          href: '#',
-
-          i className: 'fa fa-file-text-o', ' Readme'
+        # a
+        #   className: bem.with(element: 'actions-link')
+        #   href: '#',
+        #
+        #   i className: 'fa fa-file-text-o', ' Readme'
 
         a
           className: bem.with(element: 'actions-link')
@@ -29,16 +30,16 @@ module.exports = React.createFactory React.createClass
 
           i className: 'fa fa-code-fork', ' Code'
 
-        a
-          className: bem.with(
-            element: 'actions-link'
-            modifiers: {
-              disabled: true
-            }
-          )
-          href: '#',
-
-          i className: 'fa fa-plug', ' Demo'
+        # a
+        #   className: bem.with(
+        #     element: 'actions-link'
+        #     modifiers: {
+        #       disabled: true
+        #     }
+        #   )
+        #   href: '#',
+        #
+        #   i className: 'fa fa-plug', ' Demo'
 
 
 

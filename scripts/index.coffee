@@ -1,5 +1,5 @@
 
-require('../assets/styles/index.sass')
+require('../assets/styles/main/layout.sass')
 require('./_mount_app')
 
 
