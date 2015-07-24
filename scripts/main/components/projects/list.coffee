@@ -9,14 +9,6 @@ module.exports = React.createFactory React.createClass
   getInitialState: ->
     repositories: []
 
-  componentWillMount: ->
-    @props.githubUser.repos (err, repositories) =>
-      if err
-        console.error 'Could not get github information', err
-
-      else
-        _.each repositories, @initializeRepository
-
   initializeRepository: (repo) ->
     repoOptions =
       name: repo.name
