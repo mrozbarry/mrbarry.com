@@ -13,11 +13,7 @@ var express = require('express'),
 
 app.use(express.static(publicPath));
 
-// app.get('/repos/*', function(req, res) {
-//   proxy.web(req, res, {
-//     target: 'http://localhost:8080'
-//   })
-// });
+require('./routes/github')(app);
 
 if (!isProduction) {
   var bundle = require('./server/bundle.js');
