@@ -5,7 +5,10 @@ var Webpack = require('webpack'),
 
 module.exports = {
   devtool: 'source-map',
-  entry: mainPath,
+  entry: [
+    mainPath,
+    "font-awesome-webpack!./font-awesome.config.js"
+  ],
   output: {
     path: buildPath,
     filename: "bundle.js"
