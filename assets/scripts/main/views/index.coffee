@@ -1,5 +1,5 @@
 
-{Header} = require('../components/header/index')
+Header = require('../components/header/index')
 ProjectList = require('../components/projects/index')
 
 {div, h2} = React.DOM

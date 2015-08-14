@@ -1,4 +1,4 @@
-require('../../../../assets/styles/main/components/project_list.sass')
+require('./styles/index.sass')
 request = require('superagent')
 
 ProjectItem = require('./item.coffee')
@@ -6,7 +6,7 @@ ProjectItem = require('./item.coffee')
 { ul, li } = React.DOM
 
 module.exports = React.createFactory React.createClass
-  displayName: 'ProjectList'
+  displayName: 'Components:Project:Index'
 
   getInitialState: ->
     repositories: []
