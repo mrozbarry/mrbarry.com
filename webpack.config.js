@@ -1,7 +1,7 @@
 var Webpack = require("webpack"),
     path = require('path'),
     buildPath = path.resolve(__dirname, 'public', 'build'),
-    mainPath = path.resolve(__dirname, 'scripts', 'main.js');
+    mainPath = path.resolve(__dirname, 'assets', 'scripts', 'main.js');
 
 module.exports = {
   context: __dirname,
@@ -28,6 +28,7 @@ module.exports = {
   },
   resolve: {
     extensions: ["", ".js", ".coffee", ".sass"],
+    root: './assets/scripts/'
   },
   plugins: [
     new Webpack.ProvidePlugin({
