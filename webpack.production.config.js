@@ -6,8 +6,8 @@ var Webpack = require('webpack'),
 module.exports = {
   devtool: 'source-map',
   entry: [
-    mainPath,
-    "font-awesome-webpack!./font-awesome.config.js"
+    "font-awesome-webpack!./font-awesome.config.js",
+    mainPath
   ],
   output: {
     path: buildPath,

@@ -2,7 +2,7 @@
   "name": "Github Portfolio Website",
   "description": "A simple and elegant way to show off your github projects",
   "website": "http://mrbarry.com",
-  "success_url": "/index.html",
+  "success_url": "/",
   "env": {
     "NODE_ENV": "production",
     "GITHUB_TOKEN": {
