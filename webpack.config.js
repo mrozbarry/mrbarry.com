@@ -27,8 +27,7 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ["", ".js", ".coffee", ".sass"],
-    root: './assets/scripts/'
+    extensions: ["", ".js", ".coffee", ".sass"]
   },
   plugins: [
     new Webpack.ProvidePlugin({
