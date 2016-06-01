@@ -1,0 +1,88 @@
+{
+  "projects":{
+    "-53762647":{
+      "description":"",
+      "id":"feedme",
+      "language":"JavaScript",
+      "promoted":false,
+      "visible":false
+    },
+    "-52695274":{
+      "description":"Public website.  Currently dedicated to Cardular.",
+      "id":"mrozbarry.github.io",
+      "language":"HTML",
+      "promoted":false,
+      "visible":false
+    },
+    "-51718191":{
+      "description":"Card games online.  Under heavy dev, ignore for now.",
+      "id":"cardular",
+      "language":"JavaScript",
+      "promoted":true,
+      "visible":true
+    },
+    "-48060306":{
+      "description":"Sudoku game written in React",
+      "id":"react-sudoku",
+      "language":"CoffeeScript",
+      "promoted":false,
+      "visible":true
+    },
+    "-47644064":{
+      "description":"Fun way to broadcast your git repo to an office, team, or just yourself!",
+      "id":"it-was-a-git-day",
+      "language":"CoffeeScript",
+      "promoted":false,
+      "visible":false
+    },
+    "-42931758":{
+      "description":"Massively multiplayer web-based blob game.  Now in juicy blobiness!",
+      "id":"themightiestblob",
+      "language":"CoffeeScript",
+      "promoted":true,
+      "visible":true
+    },
+    "-42309005":{
+      "description":"Automatically exported from code.google.com/p/eyetracker",
+      "id":"eyetracker",
+      "language":"C",
+      "promoted":false,
+      "visible":false
+    },
+    "-39545860":{
+      "description":"My code portfolio website",
+      "id":"mrbarry.com",
+      "language":"JavaScript",
+      "promoted":false,
+      "visible":true
+    },
+    "-17753393":{
+      "description":"Ruby IRC Bot service (RIBs)",
+      "id":"ribs",
+      "language":"Ruby",
+      "promoted":false,
+      "visible":true
+    },
+    "-10195219":{
+      "description":"FreeBASIC JSON parser, currently only ascii supported, will be adding UTF-8 support soon!",
+      "id":"fbjson",
+      "language":"Visual Basic",
+      "promoted":false,
+      "visible":true
+    },
+    "-10194616":{
+      "description":"A multiplayer 2d space shooter death-match game.",
+      "id":"space-mayhem",
+      "language":"Visual Basic",
+      "promoted":false,
+      "visible":true
+    }
+  },
+  "statistics":{
+    "-Ksdjin4fjn4un":{
+      "count":500,
+      "text":"Coffees drank",
+      "trackedSince":0
+    }
+  }
+}
