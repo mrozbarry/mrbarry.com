@@ -1,6 +1,6 @@
-const { SRC_PATH } = require('./meta.paths.js')
+import { SRC_PATH } from './meta.paths'
 
-module.exports = {
+export default {
   loaders: [
     {
       test: /\.js$/,

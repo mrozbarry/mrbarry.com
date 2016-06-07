@@ -1,8 +1,6 @@
-const path = require('path')
+import { SRC_PATH } from './meta.paths'
+import path from 'path'
 
-const { SRC_PATH } = require('./meta.paths.js')
-
-module.exports = {
-  index: path.join(SRC_PATH, 'apps', 'index', 'index.js'),
-  admin: path.join(SRC_PATH, 'apps', 'admin', 'index.js')
+export default {
+  index: path.join(SRC_PATH, 'apps', 'index', 'index.js')
 }

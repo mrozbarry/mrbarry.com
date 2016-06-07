@@ -1,5 +1,5 @@
 import path from 'path'
-import { ASSET_PATH, SRC_PATH } from './meta.paths.js'
+import { ASSET_PATH, SRC_PATH } from './meta.paths'
 
 export default {
   extensions: ['', '.js'],

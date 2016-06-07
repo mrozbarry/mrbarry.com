@@ -3,7 +3,8 @@ import React from 'react'
 const Section = function (props) {
   const gutterStyle = {
     margin: '0 auto',
-    width: '1024px'
+    maxWidth: '1024px',
+    padding: '10px 20px'
   }
 
   const contentStyle = Object.assign({}, gutterStyle, { clear: 'both' })

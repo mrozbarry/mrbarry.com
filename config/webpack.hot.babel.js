@@ -1,9 +1,10 @@
+import { PUBLIC_PATH, SRC_PATH } from './webpack/meta.paths'
+import entries from './webpack/entries'
+import output from './webpack/output'
+import modules from './webpack/modules'
+import resolve from './webpack/resolve'
+
 const Webpack = require('webpack')
-const { PUBLIC_PATH, SRC_PATH } = require('./webpack/meta.paths.js')
-const entries = require('./webpack/entries.js')
-const output = require('./webpack/output.js')
-const modules = require('./webpack/modules.js')
-const resolve = require('./webpack/resolve.js')
 
 module.exports = {
   devtool: 'cheap-module-eval-source-map',
