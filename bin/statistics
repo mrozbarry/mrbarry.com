@@ -1,0 +1,114 @@
+#!/usr/bin/env node --harmony
+
+const path = require('path')
+const program = require('commander')
+const Firebase = require('firebase')
+
+program
+  .version('0.0.1')
+  .option('-c [key]', 'Create a new counter with the specified key.  Requires -d')
+  .option('-d [description]', 'Set a description for a counter')
+  .option('-a [key]', 'Increase the counter by adding one')
+  .option('-k [key]', 'Kill a counter')
+  .option('-r [key]', 'Reset a counter')
+  .parse(process.argv)
+
+if (program.C && program.D) {
+  const firebase = openFirebase()
+  const newCounter = {
+    count: 1,
+    description: program.D,
+    startedAt: (new Date()).toISOString()
+  }
+
+  firebase
+    .database()
+    .ref()
+    .child(`statistics/${program.C}`)
+    .set(newCounter)
+    .then(function () {
+      console.log('Success')
+      process.exit(0)
+    })
+    .catch(function (err) {
+      console.log('Fail')
+      process.exit(2)
+    })
+} else if (program.A) {
+  const firebase = openFirebase()
+
+  const parent = firebase
+    .database()
+    .ref()
+    .child(`statistics/${program.A}`)
+
+  parent
+    .once('value', function (snapshot) {
+      const statistic = snapshot.val()
+
+      if (statistic) {
+        parent
+          .child('count')
+          .set(statistic.count + 1)
+          .then(function () {
+            console.log('Success')
+            process.exit(0)
+          })
+          .catch(function () {
+            console.log('Fail')
+            process.exit(2)
+          })
+      }
+    })
+} else if (program.R) {
+  const firebase = openFirebase()
+
+  const parent = firebase
+    .database()
+    .ref()
+    .child(`statistics/${program.R}`)
+
+  parent
+    .once('value', function (snapshot) {
+      const statistic = snapshot.val()
+
+      if (statistic) {
+        parent
+          .update({
+            count: 0,
+            startedAt: (new Date()).toISOString()
+          })
+          .then(function () {
+            console.log('Success')
+            process.exit(0)
+          })
+          .catch(function () {
+            console.log('Fail')
+            process.exit(2)
+          })
+      }
+    })
+} else if (program.K) {
+  const firebase = openFirebase()
+
+  firebase
+    .database()
+    .ref()
+    .child(`statistics/${program.K}`)
+    .set(null)
+    .then(function () {
+      console.log('Success')
+      process.exit(0)
+    })
+    .catch(function () {
+      console.log('Fail')
+      process.exit(2)
+    })
+}
+
+function openFirebase () {
+  return Firebase.initializeApp({
+    databaseURL: 'https://mrbarry-website.firebaseio.com',
+    serviceAccount: path.join(__dirname, '..', 'config', 'secrets', 'mrbarry-website-e4aa08bbf0bd.json')
+  })
+}
