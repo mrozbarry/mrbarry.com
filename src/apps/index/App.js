@@ -3,6 +3,9 @@ import Section from './components/Section'
 import Counter from './components/Counter'
 import * as firebase from 'firebase'
 
+import Posts from './sections/Posts'
+import AboutMe from './sections/AboutMe'
+
 import _ from 'lodash'
 
 // import dummyData from '../../tests/fixtures'
@@ -22,7 +25,7 @@ const App = React.createClass({
   },
 
   componentDidMount () {
-    const fire  = this.connectToFirebase()
+    const fire = this.connectToFirebase()
     const database = fire.database().ref()
     this.loadProjects(database)
     this.loadStatistics(database)
@@ -59,16 +62,8 @@ const App = React.createClass({
   render () {
     return (
       <div>
-        <Section title='About Me' icon='fingerprint'>
-          <p style={{ clear: 'both' }}>
-            <img src='http://placehold.it/128x128' style={{ float: 'right', marginLeft: '15px' }} />
-            Here is where I'm going to write some things about myself and maybe it will be useful for people to read.  I might want to discuss hobbies, my family, overviews of my work, and so on.
-          </p>
-          <p style={{ clear: 'both' }}>
-            <img src='http://placehold.it/128x128' style={{ float: 'left', marginRight: '15px' }} />
-            Here is where I'm going to write some things about myself and maybe it will be useful for people to read.  I might want to discuss hobbies, my family, overviews of my work, and so on.
-          </p>
-        </Section>
+        <Posts />
+        <AboutMe />
         <Section title='Statistics' icon='pie_chart'>
           {this.renderStatistics()}
         </Section>
