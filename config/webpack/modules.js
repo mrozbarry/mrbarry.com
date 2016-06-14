@@ -8,6 +8,11 @@ export default {
       loader: 'babel'
     },
     {
+      test: /\.jpeg$/,
+      include: SRC_PATH,
+      loader: 'file'
+    },
+    {
       test: /\.json$/,
       include: SRC_PATH,
       loader: 'json'
