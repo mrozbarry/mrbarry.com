@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "type": "article",
+    "title": "Developing a game using HTML and React",
+    "source": "gist.github",
+    "authors": ["mrozbarry"],
+    "createdAt": "2016-10-29T02:38:55Z",
+    "target": "https://gist.github.com/mrozbarry/0ce36dfb7c96cdf60615f7a860ec806c"
+  },
+  {
+    "id": 2,
+    "type": "repository",
+    "title": "React RPG",
+    "source": "github",
+    "authors": ["mrozbarry"],
+    "createdAt": "2016-10-19T03:24:22Z",
+    "target": "https://github.com/mrozbarry/react-rpg"
+  }
+]
