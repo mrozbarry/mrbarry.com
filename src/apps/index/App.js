@@ -1,123 +1,60 @@
-import React from 'react'
-import Section from './components/Section'
-import Counter from './components/Counter'
-import * as firebase from 'firebase'
+require("styles/index.styl")
 
-import Posts from './sections/Posts'
-import AboutMe from './sections/AboutMe'
+import React from "react"
+import SocialButton from "components/SocialButton"
+import Tile from "components/Tile"
 
-import _ from 'lodash'
+import _ from "lodash"
 
-// import dummyData from '../../tests/fixtures'
+const jsonFile = require("data/content.json")
 
-const collectionToArray = function (collection) {
-  return _.map(collection, function (item, key) {
-    return Object.assign({}, item, { _id: key })
-  })
-}
 
 const App = React.createClass({
   getInitialState (props) {
+    const tiles = jsonFile
+    const order = ["date", "desc"]
+
     return {
-      projects: [],
-      statistics: []
+      tiles: this.orderTiles(tiles, order),
+      order: order
     }
   },
 
-  componentDidMount () {
-    const fire = this.connectToFirebase()
-    const database = fire.database().ref()
-    this.loadProjects(database)
-    this.loadStatistics(database)
+  orderTiles (tiles, order) {
+    return _.orderBy(tiles, [order[0]], [order[1]])
   },
 
-  connectToFirebase () {
-    var config = {
-      apiKey: 'AIzaSyDI5eUnph4q_iIL6iE1gPU4Huy0GU2Fo8Q',
-      authDomain: 'mrbarry-website.firebaseapp.com',
-      databaseURL: 'https://mrbarry-website.firebaseio.com',
-      storageBucket: 'mrbarry-website.appspot.com'
-    }
-    return firebase.initializeApp(config)
-  },
-
-  loadProjects (database) {
-    // this.setState({ projects: collectionToArray(dummyData.projects) })
-    database.child('projects').on('value', (projectsSnapshot) => {
-      this.setState({
-        projects: collectionToArray(projectsSnapshot.val())
-      })
-    })
-  },
-
-  loadStatistics (database) {
-    // this.setState({ statistics: collectionToArray(dummyData.statistics) })
-    database.child('statistics').on('value', (statisticSnapshot) => {
-      this.setState({
-        statistics: collectionToArray(statisticSnapshot.val())
-      })
+  setOrder (ordering) {
+    this.setState({
+      tiles: this.orderTiles(this.state.tiles, order),
+      order: order
     })
   },
 
   render () {
     return (
       <div>
-        <Posts />
-        <AboutMe />
-        <Section title='Statistics' icon='pie_chart'>
-          {this.renderStatistics()}
-        </Section>
-        <Section title='Projects' icon='folder_shared'>
-          {this.renderProjects()}
-          {this.renderHiddenProjects()}
-        </Section>
-        <Section title='Work Experience' icon='group_work'>
-          TODO
-        </Section>
-      </div>
-    )
-  },
-
-  renderStatistics () {
-    const { statistics } = this.state
-
-    return statistics.map(function (statistic) {
-      const { _id, count, description, startedAt } = statistic
-      return (
-        <Counter key={_id} count={count} description={description} since={startedAt} />
-      )
-    })
-  },
-
-  renderProjects () {
-    const { projects } = this.state
-
-    const visibleProjects = projects.filter(function (project) {
-      return project.visible === true
-    })
-
-    return visibleProjects.map(function (project) {
-      return (
-        <div key={project.id} style={{ display: 'inline-block', height: '75px', maxWidth: '300px', overflow: 'hidden', margin: '5px 10px', border: '1px black solid', padding: '5px' }}>
-          <div><strong>{project.id}</strong> ({project.language})</div>
-          <p style={{ whiteSpace: 'nowrap', textOverflow: 'ellipsis', maxWidth: '290px', overflow: 'hidden' }}>{project.description}</p>
+        <div className="tiles">
+          <SocialButton source="/assets/images/linkedin.png" width={268} url="https://www.linkedin.com/in/alex-barry-4b033227?" />
+          <SocialButton source="/assets/images/github.png" width={300} url="https://www.github.com/mrozbarry" />
+          <SocialButton source="/assets/images/stackoverflow.png" width={158} url="http://stackoverflow.com/users/661764/ozbarry" />
+          <SocialButton source="/assets/images/twitter.png" width={150} url="https://twitter.com/MrBeardbarry" />
+          {this.renderTiles()}
         </div>
-      )
-    })
-  },
-
-  renderHiddenProjects () {
-    const { projects } = this.state
-
-    const hiddenProjects = projects.filter(function (project) {
-      return !project.visible
-    })
-
-    return (
-      <div>
-        {hiddenProjects.length} hidden projects
       </div>
     )
+  },
+
+  renderSortables () {
+    ["source", "authors", "title", "createdAt"]
+  },
+
+  renderTiles () {
+    const { tiles } = this.state
+
+    return tiles.map((tile) => {
+      return <Tile key={tile.id} tile={tile} />
+    })
   }
 })
 

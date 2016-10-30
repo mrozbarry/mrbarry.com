@@ -6,59 +6,21 @@
 
   <title>Alex Barry: Professional Web Developer</title>
 
-  <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-  <style type="text/css">
-    html, body {
-      height: 100%;
-      margin: 0;
-    }
-    .full-screen {
-      min-height: 100%;
-      width: 100%;
-    }
-    .header {
-      background: url(background.jpg) no-repeat center center;
-      background-size: cover;
-    }
-    .header__text {
-      position: absolute;
-      top: 38%;
-      left: 10%;
-      background-color: rgba(0,0,0,0.5);
-      width: 300px;
-      color: white;
-      padding: 10px;
-    }
-    .header__title {
-      margin: 0;
-    }
-    .header__summary {
-    }
-    .content-header {
-      width: 100%;
-      color: white;
-      background: black;
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro,Ubuntu,Inconsolata" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 
 <body>
-  <div class="full-screen header">
-    <div class="header__text">
-      <h1 class="header__title">
-        Mr. Barry<br />
-        Software
-      </h1>
-      <p class="header__summary">
-        Hi, I'm Alex Barry, software developer and co-founder of Two-Fiddy (formerly Pairshaped).  I write reactive software for the web, your devices, and your personal computers.
-      </p>
-    </div>
+  <div id="header">
+    <h1>Alex Barry</h1>
+    <h3><span class="highlight">Co-founder</span> and <span class="highlight">developer</span> at <a href="#">Two-Fiddy</a>.</h3>
   </div>
+  <div id="body">
+    <hr />
 
-  <div id="root"></div>
+    <div id="root"></div>
+
+  </div>
 
   <script type="text/javascript" src="index.js"></script>
 </body>
