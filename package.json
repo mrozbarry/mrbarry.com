@@ -28,7 +28,8 @@
     "webpack-dev-server": "^1.14.1"
   },
   "scripts": {
-    "start": "webpack-dev-server --config ./config/webpack.hot.babel.js"
+    "start": "webpack --config ./config/webpack.static.babel.js",
+    "dev": "webpack-dev-server --config ./config/webpack.hot.babel.js"
   },
   "author": "Alex Barry",
   "license": "MIT"
