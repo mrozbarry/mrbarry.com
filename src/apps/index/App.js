@@ -9,27 +9,29 @@ import _ from "lodash"
 const jsonFile = require("data/content.json")
 
 
-const App = React.createClass({
-  getInitialState (props) {
+class App extends React.Component {
+  constructor (props) {
+    super(props)
+
     const tiles = jsonFile
     const order = ["date", "desc"]
 
-    return {
+    this.state = {
       tiles: this.orderTiles(tiles, order),
       order: order
     }
-  },
+  }
 
   orderTiles (tiles, order) {
     return _.orderBy(tiles, [order[0]], [order[1]])
-  },
+  }
 
   setOrder (ordering) {
     this.setState({
       tiles: this.orderTiles(this.state.tiles, order),
       order: order
     })
-  },
+  }
 
   render () {
     return (
@@ -45,19 +47,17 @@ const App = React.createClass({
         </div>
       </div>
     )
-  },
+  }
 
-  renderSortables () {
-    ["source", "authors", "title", "createdAt"]
-  },
+  // renderSortables () {
+  //   ["createdAt", "source", "authors", "title"]
+  // }
 
   renderTiles () {
-    const { tiles } = this.state
-
-    return tiles.map((tile) => {
+    return this.state.tiles.map((tile) => {
       return <Tile key={tile.id} tile={tile} />
     })
   }
-})
+}
 
 export default App
