@@ -21,11 +21,5 @@ module.exports = {
   stats: {
     colors: true,
     reasons: true
-  },
-
-  plugins: [
-    new Webpack.optimize.DedupePlugin(),
-    new Webpack.optimize.OccurenceOrderPlugin(true),
-    new Webpack.optimize.AggressiveMergingPlugin()
-  ]
+  }
 }

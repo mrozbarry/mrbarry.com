@@ -26,7 +26,7 @@ module.exports = {
 
   plugins: [
     new Webpack.HotModuleReplacementPlugin(),
-    new Webpack.NoErrorsPlugin()
+    new Webpack.NoEmitOnErrorsPlugin()
   ],
 
   devServer: {
