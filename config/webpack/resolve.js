@@ -1,10 +1,11 @@
-import path from "path"
-import { SRC_PATH } from "./meta.paths"
+const path = require("path")
+const { SRC_PATH } = require("./meta.paths")
 
-export default {
-  extensions: ["", ".js"],
-  root: [
+module.exports = {
+  extensions: [".js"],
+  modules: [
     path.resolve(SRC_PATH, "apps", "index"),
-    path.resolve(SRC_PATH)
+    path.resolve(SRC_PATH),
+    path.resolve("node_modules")
   ]
 }

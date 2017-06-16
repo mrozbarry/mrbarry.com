@@ -1,6 +1,6 @@
-import { PUBLIC_PATH } from "./meta.paths"
+const { PUBLIC_PATH } = require("./meta.paths")
 
-export default {
+module.exports = {
   path: PUBLIC_PATH,
   publicPath: "/",
   filename: "[name].js"

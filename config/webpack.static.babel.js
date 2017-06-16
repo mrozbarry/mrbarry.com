@@ -1,9 +1,9 @@
-import entries from './webpack/entries.js'
-import output from './webpack/output.js'
-import modules from './webpack/modules.js'
-import resolve from './webpack/resolve.js'
+const entries = require('./webpack/entries.js')
+const output = require('./webpack/output.js')
+const modules = require('./webpack/modules.js')
+const resolve = require('./webpack/resolve.js')
 
-export default {
+module.exports = {
   devtool: 'source-map',
 
   entry: entries,

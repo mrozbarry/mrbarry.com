@@ -40,7 +40,7 @@ const renderAuthors = (authors) => {
 
   return authors.map((author) => {
     return author
-  })
+  }).join(", ")
 }
 
 

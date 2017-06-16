@@ -1,10 +1,12 @@
-import { PUBLIC_PATH, SRC_PATH } from "./webpack/meta.paths"
-import entries from "./webpack/entries"
-import output from "./webpack/output"
-import modules from "./webpack/modules"
-import resolve from "./webpack/resolve"
+const { PUBLIC_PATH, SRC_PATH } = require("./webpack/meta.paths")
 
-const Webpack = require("webpack")
+const entries = require('./webpack/entries.js')
+const output = require('./webpack/output.js')
+const modules = require('./webpack/modules.js')
+const resolve = require('./webpack/resolve.js')
+
+const path = require('path')
+const Webpack = require('webpack')
 
 module.exports = {
   devtool: "cheap-module-eval-source-map",
@@ -12,9 +14,8 @@ module.exports = {
   entry: entries,
   output: output,
   resolve: resolve,
-
   module: {
-    loaders: modules.loaders,
+    loaders: modules.loaders
   },
 
   stats: {
@@ -31,7 +32,7 @@ module.exports = {
   devServer: {
     contentBase: PUBLIC_PATH,
     inline: true,
-    progress: true,
-    publicPath: "/"
+    publicPath: "/",
+    hot: true
   }
 }

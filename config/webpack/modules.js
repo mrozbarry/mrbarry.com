@@ -1,21 +1,21 @@
-import { SRC_PATH } from "./meta.paths"
+const { SRC_PATH } = require("./meta.paths")
 
-export default {
+module.exports = {
   loaders: [
     {
       test: /\.js$/,
       include: SRC_PATH,
-      loader: "babel"
+      loader: "babel-loader"
     },
     {
       test: /\.json$/,
       include: SRC_PATH,
-      loader: "json"
+      loader: "json-loader"
     },
     {
       test: /\.styl/,
       include: SRC_PATH,
-      loader: "style!css!stylus"
+      loader: "style-loader!css-loader!stylus-loader"
     }
   ]
 }

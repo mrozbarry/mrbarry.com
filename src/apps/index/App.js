@@ -39,6 +39,8 @@ const App = React.createClass({
           <SocialButton source="/assets/images/github.png" width={300} url="https://www.github.com/mrozbarry" />
           <SocialButton source="/assets/images/stackoverflow.png" width={158} url="http://stackoverflow.com/users/661764/ozbarry" />
           <SocialButton source="/assets/images/twitter.png" width={150} url="https://twitter.com/MrBeardbarry" />
+        </div>
+        <div className="tiles">
           {this.renderTiles()}
         </div>
       </div>

@@ -1,6 +1,6 @@
-import { SRC_PATH } from "./meta.paths"
-import path from "path"
+const { SRC_PATH } = require("./meta.paths")
+const path = require("path")
 
-export default {
+module.exports = {
   index: path.join(SRC_PATH, "apps", "index", "index.js")
 }
