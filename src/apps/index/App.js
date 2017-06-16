@@ -14,22 +14,15 @@ class App extends React.Component {
     super(props)
 
     const tiles = jsonFile
-    const order = ["date", "desc"]
 
     this.state = {
-      tiles: this.orderTiles(tiles, order),
-      order: order
+      tiles: this.orderTiles(tiles)
     }
   }
 
-  orderTiles (tiles, order) {
-    return _.orderBy(tiles, [order[0]], [order[1]])
-  }
-
-  setOrder (ordering) {
-    this.setState({
-      tiles: this.orderTiles(this.state.tiles, order),
-      order: order
+  orderTiles (tiles) {
+    return tiles.sort((a, b) => {
+      return (new Date(b.createdAt)) - (new Date(a.createdAt))
     })
   }
 
@@ -48,10 +41,6 @@ class App extends React.Component {
       </div>
     )
   }
-
-  // renderSortables () {
-  //   ["createdAt", "source", "authors", "title"]
-  // }
 
   renderTiles () {
     return this.state.tiles.map((tile) => {
