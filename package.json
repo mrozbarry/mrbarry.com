@@ -2,7 +2,8 @@
   "name": "mrbarry.com",
   "version": "0.1.0",
   "description": "Github-base source code portfolio",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
     "babel-core": "^6.9.0",
     "babel-eslint": "^6.0.4",
     "babel-loader": "^6.2.4",
@@ -23,9 +24,7 @@
     "style-loader": "^0.13.1",
     "stylus": "^0.54.5",
     "stylus-loader": "^2.3.1",
-    "webpack": "^2"
-  },
-  "devDependencies": {
+    "webpack": "^2",
     "webpack-dev-server": "^2"
   },
   "scripts": {

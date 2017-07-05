@@ -1,0 +1,45 @@
+{
+  "resume": {
+    "contact": {
+      "firstName": "Alex",
+      "lastName": "Barry",
+      "website": "http://mrbarry.com",
+      "email": "alex.barry@gmail.com",
+      "phone": "519.998.6791",
+      "streetAddress": "8 State Court",
+      "unit": "",
+      "city": "Waterloo",
+      "province": "Ontario",
+      "postalCode": "N2L3G9",
+      "headshot": {
+        "url": ""
+      }
+    },
+    "summary": {
+      "title": "Software Engineer",
+      "content": {
+        "url": ""
+      }
+    },
+    "skills": [
+      {
+        "name": "",
+        "points": 0
+      }
+    ],
+    "tools": [
+      {
+        "name": "",
+        "points": 0
+      }
+    ],
+    "experience": [
+      {
+        "company": "",
+        "title": "",
+        "startedAt": "",
+        "endedAt": ""
+      }
+    ]
+  }
+}

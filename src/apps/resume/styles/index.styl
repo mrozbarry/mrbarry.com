@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css?family=Archivo+Narrow:700|Julius+Sans+One|Source+Sans+Pro')
+
+primary-color = #4dd494
+secondary-color = #2c2e31
+
+*
+  box-sizing: border-box
+
+.heading
+  font-family: "Julius Sans One", sans-serif
+  font-size: 62pt
+  text-transform: uppercase
+
+
+.sub-heading
+  font-family: "Archivo Narrow"
+  font-weight: 700
+  font-size: 24pt
+
+
+.head-shot
+  width: 164px
+  height: 164px
+  border-radius: 50%
+  border: 4px primary-color solid
+  background-color: grey
+  background-size: cover
+  background-position: 50% 50%
+
+
+.separator
+  height: 2px
+  border-color: primary-color
+  background-color: primary-color
+  margin: 32px 0
+  flex-shrink: 1
+
+.thick-separator
+  @extend .separator
+  height: 8px
+
+
+.page
+  display: flex
+  flex-direction: row
+  flex-wrap: nowrap
+  align-items: flex-start
+  justify-content: flex-start
+  min-height: 100%
+  height: 100%
+
+  &-sidebar
+    flex-grow: 1
+    display: flex
+    flex-direction: column
+    flex-wrap: nowrap
+    align-items: center
+    justify-content: center
+    background-color: secondary-color
+    color: white
+    padding: 32px
+    max-width: 500px
+    text-align: center
+    min-height: 100%
+
+    .heading,
+    .sub-heading,
+    a
+      color: primary-color
+
+    .head-shot
+      margin: 0 auto
+      margin-bottom: 32px
+      flex-shrink: 1
+
+    a
+      display: block
+      width: auto
+      color: primary-color
+      text-decoration: none
+      margin-top: 8px
+      cursor: pointer
+
+    .text-content
+      flex-grow: 1
+
+
+  &-content
+    flex-grow: 1
+    height: 100%
+    margin-top: 64px
+
+
+    section
+      padding: 16px 64px
+      margin: 16px 0 64pxpx 0
+
+      .sub-heading
+        color: primary-color
+        margin-bottom: 32px
+
+
+.imperical-collection
+  list-style: none
+  margin: 0
+  padding: 0
+
+  &__item
+    display: flex
+    flex-direction: row
+    flex-wrap: nowrap
+    align-items: center
+    justify-contents: center
+    margin: 4px 0
+
+    &-name
+      width: 200px
+
+  &__points
+    display: block
+    list-style: none
+    margin: 0
+    padding: 0
+
+    &-notch
+      display: inline-block
+      margin-right: 16px
+
+html, body
+  min-height: 100%
+  height: 100%
+  padding: 0
+  margin: 0
+
+
+#root
+  min-height: 100%
+
+
+body
+  font-family: "Source Sans Pro", sans-serif
+  font-size: 16pt
