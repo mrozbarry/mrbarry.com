@@ -3,8 +3,6 @@
   "version": "0.1.0",
   "description": "Github-base source code portfolio",
   "dependencies": {
-  },
-  "devDependencies": {
     "babel-core": "^6.9.0",
     "babel-eslint": "^6.0.4",
     "babel-loader": "^6.2.4",
@@ -28,6 +26,8 @@
     "webpack": "^2",
     "webpack-dev-server": "^2",
     "whatwg-fetch": "^2.0.3"
+  },
+  "devDependencies": {
   },
   "scripts": {
     "postinstall": "NODE_ENV=production ./node_modules/.bin/webpack --config ./config/webpack.static.babel.js",
