@@ -12,7 +12,7 @@
     "babel-preset-es2017": "^6.9.0",
     "babel-preset-react": "^6.5.0",
     "css-loader": "^0.25.0",
-    "express": "^4.14.0",
+    "express": "^4.15.3",
     "file-loader": "^0.8.5",
     "json-loader": "^0.5.4",
     "lodash": "^4",
@@ -27,11 +27,11 @@
     "webpack-dev-server": "^2",
     "whatwg-fetch": "^2.0.3"
   },
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "scripts": {
     "postinstall": "NODE_ENV=production ./node_modules/.bin/webpack --config ./config/webpack.static.babel.js",
-    "dev": "./node_modules/.bin/webpack-dev-server --config ./config/webpack.hot.babel.js"
+    "dev": "./node_modules/.bin/webpack-dev-server --config ./config/webpack.hot.babel.js",
+    "start": "node ./server.js"
   },
   "author": "Alex Barry",
   "license": "MIT"
