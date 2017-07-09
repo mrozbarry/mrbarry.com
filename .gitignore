@@ -3,3 +3,4 @@ public/build
 npm-debug.log
 config/secrets
 public/index.js*
+public/resume.js*
