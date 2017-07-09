@@ -1,4 +1,4 @@
-require("styles/index.styl")
+require("./styles/index.styl")
 
 import React from "react"
 import SocialButton from "components/SocialButton"

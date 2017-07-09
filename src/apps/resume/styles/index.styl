@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css?family=Archivo+Narrow:700|Julius+Sans+One|Source+Sans+Pro')
+
+primary-color = #4dd494
+secondary-color = #2c2e31
+breakpoint-small = 1200px
+breakpoint-tiny = 800px
+
+*
+  box-sizing: border-box
+  // transition: all .3s ease-in-out
+
+.raw-json
+  position: absolute
+  top: 0
+  right: 0
+  font-size: 14px
+  text-decoration: none
+
+  @media print
+    display: none
+
+.heading
+  font-family: "Julius Sans One", sans-serif
+  font-size: 62pt
+  text-transform: uppercase
+
+
+.sub-heading
+  font-family: "Archivo Narrow"
+  font-weight: 700
+  font-size: 24pt
+
+.title
+  font-family: "Archivo Narrow"
+  font-weight: 700
+
+
+.head-shot
+  width: 164px
+  height: 164px
+  border-radius: 50%
+  border: 4px primary-color solid
+  background-color: grey
+  background-size: cover
+  background-position: 50% 50%
+
+
+.separator
+  height: 2px
+  border-color: primary-color
+  background-color: primary-color
+  margin: 32px 0
+  flex-shrink: 1
+
+.thick-separator
+  @extend .separator
+  height: 8px
+
+
+.page
+  display: flex
+  width: 100%
+
+  @media screen and (max-width: breakpoint-small)
+    flex-direction: column
+
+  @media print
+    display: block
+    flex-direction: column
+
+.sidebar
+  display: flex
+  flex-direction: column
+  flex-wrap: nowrap
+  align-items: center
+  justify-content: center
+  background-color: secondary-color
+  color: white
+  padding: 32px
+  max-width: 500px
+  text-align: center
+
+  @media screen and (max-width: breakpoint-small)
+    max-width: none
+    width: 100%
+
+  @media print
+    display: block
+    max-width: none
+    height: 100%
+    background-color: white
+    color: secondary-color
+
+  .page-header,
+  .page-footer
+    width: 100%
+
+  .heading,
+  .sub-heading,
+  a
+    color: primary-color
+
+  .name
+    width: 100%
+    flex-grow: 1
+
+    .heading
+      display: inline-block
+
+      &:first-child
+        padding-right: 16px
+
+  .head-shot
+    margin: 0 auto
+    margin-bottom: 32px
+    flex-shrink: 1
+
+    @media screen and (max-width: breakpoint-small)
+      width: 256px
+      height: 256px
+
+
+  a
+    display: block
+    width: auto
+    color: primary-color
+    text-decoration: none
+    margin-top: 8px
+    cursor: pointer
+
+
+.text-content
+  flex-grow: 1
+
+  @media print
+    display: block
+
+
+.content
+  margin-top: 64px
+  flex-grow: 1
+  display: flex
+  flex-direction: row
+  flex-wrap: wrap
+  align-items: flex-start
+  justify-content: flex-start
+
+  @media screen and (max-width: breakpoint-small)
+    max-width: auto
+    width: 100%
+
+  @media print
+    flex-direction: row
+    flex-wrap: wrap
+    page-break-before: always
+    margin-top: 0
+
+  section
+    padding: 16px 32px 16px 64px
+    margin: 16px 0 64px 0
+    width: 50%
+
+    @media screen and (max-width: breakpoint-small)
+      width: 100%
+
+
+    @media screen and (max-width: breakpoint-tiny)
+      padding: 16px 8px
+      margin-bottom: 16px
+
+    @media print
+      width: 50%
+      padding: 16px 8px
+      margin-bottom: 16px
+
+    .sub-heading.section
+      color: primary-color
+      margin-bottom: 32px
+
+
+.imperical-collection
+  list-style: none
+  margin: 0
+  padding: 0
+
+  &__item
+    display: flex
+    flex-direction: row
+    flex-wrap: nowrap
+    align-items: center
+    justify-content: center
+    margin: 4px 0
+
+    @media screen and (max-width: breakpoint-small)
+      margin: 16px 0
+
+    @media print
+      margin: 16px 0
+
+    &-name
+      flex: 0 0 110px
+
+  &__points
+    flex-grow: 1
+    display: block
+    list-style: none
+    margin: 0
+    padding: 0
+
+    &-notch
+      display: inline-block
+      margin-right: 8px
+
+      @media screen and (max-width: breakpoint-tiny)
+        margin-right: 4px
+
+      @media print
+        margin-right: 4px
+
+
+.job
+  margin-bottom: 32px
+
+
+html, body
+  padding: 0
+  margin: 0
+
+  @media print
+    height: 100%
+
+
+body
+  font-family: "Source Sans Pro", sans-serif
+  font-size: 16pt
+
+  @media print
+    width: 100%
+
+
+#root
+  display: block
+  width: 100%
