@@ -77,6 +77,7 @@ class App extends React.Component {
     const { biography, contact } = this.props.resume
     return (
       <div className="page">
+        <a href="/assets/data/resume.json" className="raw-json" target="_blank">Raw</a>
         <div className="sidebar">
           <PageHeader
             firstName={biography.firstName}
