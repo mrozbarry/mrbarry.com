@@ -30,8 +30,8 @@
     "whatwg-fetch": "^2.0.3"
   },
   "scripts": {
-    "postinstall": "NODE_ENV=production webpack --config ./config/webpack.static.babel.js",
-    "dev": "webpack-dev-server --config ./config/webpack.hot.babel.js"
+    "postinstall": "NODE_ENV=production ./node_modules/.bin/webpack --config ./config/webpack.static.babel.js",
+    "dev": "./node_modules/.bin/webpack-dev-server --config ./config/webpack.hot.babel.js"
   },
   "author": "Alex Barry",
   "license": "MIT"
