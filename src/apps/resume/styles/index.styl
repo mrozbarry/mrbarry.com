@@ -2,9 +2,12 @@
 
 primary-color = #4dd494
 secondary-color = #2c2e31
+breakpoint-small = 1200px
+breakpoint-tiny = 800px
 
 *
   box-sizing: border-box
+  // transition: all .3s ease-in-out
 
 .heading
   font-family: "Julius Sans One", sans-serif
@@ -16,6 +19,10 @@ secondary-color = #2c2e31
   font-family: "Archivo Narrow"
   font-weight: 700
   font-size: 24pt
+
+.title
+  font-family: "Archivo Narrow"
+  font-weight: 700
 
 
 .head-shot
@@ -42,62 +49,123 @@ secondary-color = #2c2e31
 
 .page
   display: flex
-  flex-direction: row
+  width: 100%
+
+  @media screen and (max-width: breakpoint-small)
+    flex-direction: column
+
+  @media print
+    display: block
+    flex-direction: column
+
+.sidebar
+  display: flex
+  flex-direction: column
   flex-wrap: nowrap
+  align-items: center
+  justify-content: center
+  background-color: secondary-color
+  color: white
+  padding: 32px
+  max-width: 500px
+  text-align: center
+
+  @media screen and (max-width: breakpoint-small)
+    max-width: none
+    width: 100%
+
+  @media print
+    display: block
+    max-width: none
+    height: 100%
+    background-color: white
+    color: secondary-color
+
+  .page-header,
+  .page-footer
+    width: 100%
+
+  .heading,
+  .sub-heading,
+  a
+    color: primary-color
+
+  .name
+    width: 100%
+    flex-grow: 1
+
+    .heading
+      display: inline-block
+
+      &:first-child
+        padding-right: 16px
+
+  .head-shot
+    margin: 0 auto
+    margin-bottom: 32px
+    flex-shrink: 1
+
+    @media screen and (max-width: breakpoint-small)
+      width: 256px
+      height: 256px
+
+
+  a
+    display: block
+    width: auto
+    color: primary-color
+    text-decoration: none
+    margin-top: 8px
+    cursor: pointer
+
+
+.text-content
+  flex-grow: 1
+
+  @media print
+    display: block
+
+
+.content
+  margin-top: 64px
+  flex-grow: 1
+  display: flex
+  flex-direction: row
+  flex-wrap: wrap
   align-items: flex-start
   justify-content: flex-start
-  min-height: 100%
-  height: 100%
 
-  &-sidebar
-    flex-grow: 1
-    display: flex
-    flex-direction: column
-    flex-wrap: nowrap
-    align-items: center
-    justify-content: center
-    background-color: secondary-color
-    color: white
-    padding: 32px
-    max-width: 500px
-    text-align: center
-    min-height: 100%
+  @media screen and (max-width: breakpoint-small)
+    max-width: auto
+    width: 100%
 
-    .heading,
-    .sub-heading,
-    a
+  @media print
+    flex-direction: row
+    flex-wrap: wrap
+    page-break-before: always
+    margin-top: 0
+
+  section
+    padding: 16px 32px 16px 64px
+    margin: 16px 0 64px 0
+    width: 50%
+
+    @media screen and (max-width: breakpoint-small)
+      width: 100%
+
+
+    @media screen and (max-width: breakpoint-tiny)
+      padding: 16px 8px
+      margin-bottom: 16px
+
+    @media print
+      width: 50%
+      padding: 16px 8px
+      margin-bottom: 16px
+
+    .sub-heading.section
       color: primary-color
-
-    .head-shot
-      margin: 0 auto
       margin-bottom: 32px
-      flex-shrink: 1
-
-    a
-      display: block
-      width: auto
-      color: primary-color
-      text-decoration: none
-      margin-top: 8px
-      cursor: pointer
-
-    .text-content
-      flex-grow: 1
-
-
-  &-content
-    flex-grow: 1
-    height: 100%
-    margin-top: 64px
-
-
-    section
-      padding: 16px 64px
-      margin: 16px 0 64pxpx 0
-
-      .sub-heading
-        color: primary-color
-        margin-bottom: 32px
 
 
 .imperical-collection
@@ -110,13 +178,20 @@ secondary-color = #2c2e31
     flex-direction: row
     flex-wrap: nowrap
     align-items: center
-    justify-contents: center
+    justify-content: center
     margin: 4px 0
 
+    @media screen and (max-width: breakpoint-small)
+      margin: 16px 0
+
+    @media print
+      margin: 16px 0
+
     &-name
-      width: 200px
+      flex: 0 0 110px
 
   &__points
+    flex-grow: 1
     display: block
     list-style: none
     margin: 0
@@ -124,19 +199,35 @@ secondary-color = #2c2e31
 
     &-notch
       display: inline-block
-      margin-right: 16px
+      margin-right: 8px
+
+      @media screen and (max-width: breakpoint-tiny)
+        margin-right: 4px
+
+      @media print
+        margin-right: 4px
+
+
+.job
+  margin-bottom: 32px
+
 
 html, body
-  min-height: 100%
-  height: 100%
   padding: 0
   margin: 0
 
-
-#root
-  min-height: 100%
+  @media print
+    height: 100%
 
 
 body
   font-family: "Source Sans Pro", sans-serif
   font-size: 16pt
+
+  @media print
+    width: 100%
+
+
+#root
+  display: block
+  width: 100%

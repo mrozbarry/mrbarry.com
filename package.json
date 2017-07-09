@@ -2,7 +2,9 @@
   "name": "mrbarry.com",
   "version": "0.1.0",
   "description": "Github-base source code portfolio",
-  "dependencies": {},
+  "dependencies": {
+    "whatwg-fetch": "^2.0.3"
+  },
   "devDependencies": {
     "babel-core": "^6.9.0",
     "babel-eslint": "^6.0.4",

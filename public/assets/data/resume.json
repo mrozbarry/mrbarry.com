@@ -1,45 +1,67 @@
 {
   "resume": {
-    "contact": {
+
+    "biography": {
       "firstName": "Alex",
       "lastName": "Barry",
-      "website": "http://mrbarry.com",
-      "email": "alex.barry@gmail.com",
-      "phone": "519.998.6791",
-      "streetAddress": "8 State Court",
-      "unit": "",
-      "city": "Waterloo",
-      "province": "Ontario",
-      "postalCode": "N2L3G9",
-      "headshot": {
-        "url": ""
-      }
-    },
-    "summary": {
       "title": "Software Engineer",
-      "content": {
-        "url": ""
+      "headshot": {
+        "url": "/assets/images/headshot.jpg"
+      },
+      "summary": {
+        "url": "/assets/data/summary.txt"
       }
     },
-    "skills": [
-      {
-        "name": "",
-        "points": 0
-      }
+
+    "contact": {
+      "phone": "519.998.6791",
+      "email": "alex.barry@gmail.com",
+      "website": "http://mrbarry.com",
+      "location": "Waterloo, ON, Canada"
+    },
+
+    "languages": [
+      { "name": "Elm",  "amount": 9 },
+      { "name": "Javascript",  "amount": 10 },
+      { "name": "Ruby",  "amount": 7 },
+      { "name": "C",  "amount": 5 },
+      { "name": "CSS",  "amount": 8 },
+      { "name": "Sass",  "amount": 6 },
+      { "name": "PHP",  "amount": 6 },
+      { "name": "Bash",  "amount": 3 },
+      { "name": "SQL",  "amount": 5 }
     ],
+
     "tools": [
-      {
-        "name": "",
-        "points": 0
-      }
+      { "name": "NodeJS",  "amount": 7 },
+      { "name": "Rails",  "amount": 7 },
+      { "name": "Rspec",  "amount": 6 },
+      { "name": "Mocha",  "amount": 6 },
+      { "name": "Qt 5",  "amount": 5 },
+      { "name": "SDL2",  "amount": 7 },
+      { "name": "Firebase",  "amount": 10 },
+      { "name": "Vim",  "amount": 5 },
+      { "name": "React",  "amount": 9 },
+      { "name": "Webpack",  "amount": 8 }
     ],
-    "experience": [
-      {
-        "company": "",
-        "title": "",
-        "startedAt": "",
-        "endedAt": ""
-      }
+
+    "skills": [
+      { "name": "Agile",  "amount": 7 },
+      { "name": "Real-time",  "amount": 9 },
+      { "name": "Functional",  "amount": 8 },
+      { "name": "Reactive",  "amount": 7 },
+      { "name": "Front-End",  "amount": 9 },
+      { "name": "Back-End",  "amount": 7 },
+      { "name": "Dev-Ops",  "amount": 2 },
+      { "name": "Linux",  "amount": 7 }
+    ],
+
+    "workExperience": [
+      { "company": "Pairshaped Inc", "start_year": 2014, "end_year": "Present", "title": "Software Developer, Co-Founder" },
+      { "company": "MotoRegistry", "start_year": 2013, "end_year": 2014, "title": "Software Developer" },
+      { "company": "Cineclick Inc", "start_year": 2013, "end_year": 2013, "title": "Game Platform Developer" },
+      { "company": "YouEye", "start_year": 2010, "end_year": 2012, "title": "Software Engineer" }
     ]
+
   }
 }

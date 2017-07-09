@@ -2,38 +2,131 @@ require("./styles/index.styl")
 
 import React from "react"
 
-import PageHeading from "./components/PageHeading.js"
+import PageHeader from "./components/PageHeader.js"
+import Summary from "./components/Summary.js"
+import PageFooter from "./components/PageFooter.js"
 import ImpericalCollection from "./components/ImpericalCollection.js"
+import WorkExperience from "./components/WorkExperience.js"
 
-const App = (props) => {
-  return (
-    <div className="page">
-      <div className="page-sidebar">
-        <PageHeading />
+const remoteData = {
+  initial: () => {
+    return { state: "initial", data: null }
+  },
+
+  loading: () => {
+    return { state: "loading", data: null }
+  },
+
+  ok: (data) => {
+    const formatted =
+      data
+      .split(/\n\n/g)
+      .map((text) => text.replace(/\n/g, " "))
+
+    return { state: "ok", data: formatted }
+  },
+
+  err: (reason) => {
+    return { state: "err", data: reason }
+  }
+}
+
+class App extends React.Component {
+  constructor (props) {
+    super(props)
+
+    this.state = {
+      summary: remoteData.initial()
+    }
+  }
+
+  componentDidMount () {
+    this.setState({
+      summary: remoteData.loading()
+    }, this.summaryGet)
+  }
+
+  summaryGet () {
+    fetch(this.props.resume.biography.summary.url)
+      .then((response) => {
+        if (response.status >= 200 && response.status < 300) {
+          return response.text()
+        } else {
+          let err = new Error(response.statusText)
+          err.response = response
+          throw err
+        }
+      })
+      .then((text) => this.summaryOk(text))
+      .catch((ex) => this.summaryErr(ex))
+  }
+
+  summaryOk (summary) {
+    this.setState({
+      summary: remoteData.ok(summary)
+    })
+  }
+
+  summaryErr (exception) {
+    this.setState({
+      summary: remoteData.err(exception)
+    })
+  }
+
+  render () {
+    const { biography, contact } = this.props.resume
+    return (
+      <div className="page">
+        <div className="sidebar">
+          <PageHeader
+            firstName={biography.firstName}
+            lastName={biography.lastName}
+            title={biography.title}
+            headshot={biography.headshot.url}
+            />
+
+          <Summary summary={this.state.summary} />
+
+          <PageFooter
+            location={contact.location}
+            phone={contact.phone}
+            email={contact.email}
+            website={contact.website}
+            />
+        </div>
+        <div className="content">
+          <section>
+            <div className="section-header">
+              <div className="sub-heading section">Languages</div>
+            </div>
+
+            <ImpericalCollection items={this.props.resume.languages} />
+          </section>
+
+          <section>
+            <div className="section-header">
+              <div className="sub-heading section">Tools</div>
+            </div>
+
+            <ImpericalCollection items={this.props.resume.tools} />
+          </section>
+
+          <section>
+            <div className="sub-heading section">Skills</div>
+
+            <ImpericalCollection items={this.props.resume.skills} />
+          </section>
+
+          <section>
+            <div className="sub-heading section">Work Experience</div>
+
+            <WorkExperience jobs={this.props.resume.workExperience} />
+          </section>
+
+        </div>
       </div>
-      <div className="page-content">
-        <section>
-          <div className="section-header">
-            <div className="sub-heading">Tools</div>
-          </div>
-
-          <ImpericalCollection items={[{name: "Elm", amount: 8}, {name: "Javascript", amount: 9}, {name: "NodeJS", amount: 7}, {name: "Ruby", amount: 7}, {name: "Qt5", amount: 4}, {name: "C", amount: 6}, {name: "SDL2", amount: 8}, {name: "Firebase", amount: 9}, {name: "Vim", amount: 5}, {name: "React", amount: 8}]} />
-        </section>
-
-        <section>
-          <div className="sub-heading">Skills</div>
-
-          <ImpericalCollection items={[{name: "Functional", amount: 7}, {name: "Front-End", amount: 8}, {name: "Back-End", amount: 7}, {name: "Dev-Ops", amount: 4}, {name: "Linux", amount:7}]} />
-        </section>
-
-        <section>
-          <div className="sub-heading">Work Experience</div>
-        </section>
-
-      </div>
-    </div>
-  )
+    )
+  }
 }
 
 export default App
-
