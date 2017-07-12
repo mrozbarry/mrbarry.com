@@ -28,6 +28,9 @@
     "whatwg-fetch": "^2.0.3"
   },
   "devDependencies": {},
+  "engines": {
+    "node": "7.10.1"
+  },
   "scripts": {
     "postinstall": "NODE_ENV=production ./node_modules/.bin/webpack --config ./config/webpack.static.babel.js",
     "dev": "./node_modules/.bin/webpack-dev-server --config ./config/webpack.hot.babel.js",
