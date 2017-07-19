@@ -44,6 +44,9 @@ breakpoint-tiny = 800px
   background-size: cover
   background-position: 50% 50%
 
+  @media print
+    display: none !important
+
 
 .separator
   height: 2px
@@ -171,7 +174,7 @@ breakpoint-tiny = 800px
     @media print
       width: 50%
       padding: 16px 8px
-      margin-bottom: 16px
+      margin-bottom: 8px
 
     .sub-heading.section
       color: primary-color
@@ -195,7 +198,7 @@ breakpoint-tiny = 800px
       margin: 16px 0
 
     @media print
-      margin: 16px 0
+      margin: 8px 0
 
     &-name
       flex: 0 0 110px
@@ -220,6 +223,9 @@ breakpoint-tiny = 800px
 
 .job
   margin-bottom: 32px
+
+  @media print
+    margin-bottom: 16px
 
 
 html, body

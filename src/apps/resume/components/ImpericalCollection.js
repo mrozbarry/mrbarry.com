@@ -29,8 +29,6 @@ const Points = (props) => {
 
   const color = colorScale(props.amount / 10)
 
-  console.log("Points", props, color)
-
   return (
     <ol className="imperical-collection__points">
       {notches.map((notch, idx) => {
