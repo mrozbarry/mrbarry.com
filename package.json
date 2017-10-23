@@ -2,39 +2,38 @@
   "name": "mrbarry.com",
   "version": "0.1.0",
   "description": "Github-base source code portfolio",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
     "babel-core": "^6.9.0",
-    "babel-eslint": "^6.0.4",
-    "babel-loader": "^6.2.4",
-    "babel-plugin-react-transform": "^2.0.2",
+    "babel-eslint": "^8.0.1",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-react-transform": "^3.0.0",
     "babel-plugin-transform-runtime": "^6.9.0",
     "babel-polyfill": "^6.9.0",
-    "babel-preset-es2017": "^6.9.0",
+    "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.5.0",
-    "css-loader": "^0.25.0",
+    "css-loader": "^0.28.7",
     "express": "^4.15.3",
-    "file-loader": "^0.8.5",
+    "file-loader": "^1.1.5",
     "json-loader": "^0.5.4",
     "lodash": "^4",
     "moment": "^2.13.0",
-    "react": "^15",
-    "react-dom": "^15",
+    "react": "^16",
+    "react-dom": "^16",
     "react-transform-hmr": "^1.0.4",
-    "style-loader": "^0.13.1",
+    "style-loader": "^0.19.0",
     "stylus": "^0.54.5",
-    "stylus-loader": "^2.3.1",
-    "webpack": "^2",
+    "stylus-loader": "^3.0.1",
+    "webpack": "^3.8.1",
     "webpack-dev-server": "^2",
     "whatwg-fetch": "^2.0.3"
   },
-  "devDependencies": {},
   "engines": {
-    "node": "7.10.1"
+    "node": ">= 6"
   },
   "scripts": {
-    "postinstall": "NODE_ENV=production ./node_modules/.bin/webpack --config ./config/webpack.static.babel.js",
-    "dev": "./node_modules/.bin/webpack-dev-server --config ./config/webpack.hot.babel.js",
-    "start": "node ./server.js"
+    "predeploy": "NODE_ENV=production ./node_modules/.bin/webpack --config ./config/webpack.static.babel.js",
+    "dev": "./node_modules/.bin/webpack-dev-server --config ./config/webpack.hot.babel.js"
   },
   "author": "Alex Barry",
   "license": "MIT"
