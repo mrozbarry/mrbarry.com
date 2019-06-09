@@ -4,6 +4,7 @@
   "description": "Personal and Professional portfolio",
   "dependencies": {},
   "devDependencies": {
+    "firebase-tools": "^6.11.0",
     "parcel-bundler": "^1.12.3",
     "sass": "^1.21.0"
   },
@@ -12,7 +13,8 @@
   },
   "scripts": {
     "start": "parcel ./src/apps/index/index.html",
-    "build": "parcel build ./src/apps/index/index.html"
+    "build": "parcel build ./src/apps/index/index.html",
+    "deploy": "yarn build && firebase deploy"
   },
   "author": "Alex Barry",
   "license": "MIT"
