@@ -37,7 +37,7 @@ nav
 
     @media (max-width: $mobile-max-width)
       border-radius: 50%
-      max-width: 80%
+      max-width: 300px
 
   .box
     text-align: center
@@ -47,17 +47,20 @@ nav
     max-width: 300px
 
     @media (max-width: $mobile-max-width)
-      max-width: 70%
+      max-width: 95%
 
     h1, h2
       margin: 0
       padding: 0
 
-    quote
-      font-size: 3rem
+    h1
+      font-size: 2rem
+
+    h2, quote
+      font-size: 1.8rem
 
     cite
-      font-size: 2.8rem
+      font-size: 1.6rem
 
   .spacer
     flex-grow: 1
@@ -76,9 +79,6 @@ nav
         transition: transform .3s
         height: 32px
         width: auto
-
-        @media (max-width: $mobile-max-width)
-          height: 98px
 
       &:hover,
       &:active,
