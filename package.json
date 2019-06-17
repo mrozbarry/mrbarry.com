@@ -4,7 +4,7 @@
   "description": "Personal and Professional portfolio",
   "dependencies": {},
   "devDependencies": {
-    "firebase-tools": "^6.11.0",
+    "firebase-tools": "^7.0.0",
     "parcel-bundler": "^1.12.3",
     "sass": "^1.21.0"
   },
