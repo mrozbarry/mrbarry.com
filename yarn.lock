@@ -3280,6 +3280,21 @@ https-browserify@0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/https-browserify/-/https-browserify-0.0.1.tgz#3f91365cabe60b77ed0ebba24b454e3e09d95a82"
 
+hyperapp-debug@^1.0.0-beta.4:
+  version "1.0.0-beta.4"
+  resolved "https://registry.yarnpkg.com/hyperapp-debug/-/hyperapp-debug-1.0.0-beta.4.tgz#cae1bf7ac8fd290efbe0ae477cfba5c711f74514"
+  integrity sha512-YiZLKnKBgXYkU6IFSNYKPHiHYxmYrqnI4fWKwBIIRJtfsifUBCk7MvxIsxsi2BB0xGX3r89o1f44hZJIlLM8Pw==
+
+hyperapp-fx@^2.0.0-beta.1:
+  version "2.0.0-beta.1"
+  resolved "https://registry.yarnpkg.com/hyperapp-fx/-/hyperapp-fx-2.0.0-beta.1.tgz#ba8cec6ef83358b65451b12fca34b7b2d0e18b3c"
+  integrity sha512-YVzRLwPR1iN1TfpQmCwmSId3qMFr1RKyNgfC01buY0HuAAxzVg/Z/NDsgH8ezERzIm56zIYzYsqQft+Bl1lWPw==
+
+hyperapp@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/hyperapp/-/hyperapp-2.0.1.tgz#34a9a0ded0c18c979a6ddcb15633c616da91c905"
+  integrity sha512-ckAF95l04Eld6hVGlq48FIcFNRTCyvMJtKqNoaCu9fiSXPOKv6pq7QQe5Lvnlt28IcMiFu10cKlX8J+xDVpRbQ==
+
 iconv-lite@0.4.24, iconv-lite@^0.4.24, iconv-lite@^0.4.4:
   version "0.4.24"
   resolved "https://registry.yarnpkg.com/iconv-lite/-/iconv-lite-0.4.24.tgz#2022b4b25fbddc21d2f524974a474aafe733908b"
