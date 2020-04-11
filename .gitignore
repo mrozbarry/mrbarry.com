@@ -1,6 +1,5 @@
 node_modules
-public/build
-npm-debug.log
-config/secrets
-
-public/*.js*
+dist
+.cache
+.firebase
+public
