@@ -3,17 +3,23 @@
   "version": "1.0.0",
   "description": "Personal and Professional portfolio",
   "dependencies": {
-    "hyperapp": "^2.0.1",
+    "hyperapp": "^2.0.4",
     "hyperapp-debug": "^1.0.0-beta.4",
     "hyperapp-fx": "^2.0.0-beta.1"
   },
   "devDependencies": {
+    "autoprefixer": "^9.7.6",
+    "ava": "^3.6.0",
+    "cssnano": "^4.1.10",
+    "esm": "^3.2.25",
     "firebase-tools": "^7.0.0",
     "parcel-bundler": "^1.12.3",
-    "sass": "^1.21.0"
+    "postcss-cli": "^7.1.0",
+    "sass": "^1.21.0",
+    "tailwindcss": "^1.2.0"
   },
   "engines": {
-    "node": ">= 10"
+    "node": ">= 12"
   },
   "scripts": {
     "start": "parcel ./src/apps/index/index.html",
