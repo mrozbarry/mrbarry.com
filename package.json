@@ -15,6 +15,7 @@
     "firebase-tools": "^7.0.0",
     "parcel-bundler": "^1.12.3",
     "postcss-cli": "^7.1.0",
+    "pug": "^3.0.0",
     "sass": "^1.21.0",
     "tailwindcss": "^1.2.0"
   },
@@ -27,7 +28,8 @@
     "build:index": "parcel build ./src/apps/index/index.html",
     "build:testbed": "parcel build ./src/apps/test-bed/index.html -d ./dist/test-bed/ --public-url /test-bed --no-minify",
     "build": "yarn build:index && yarn build:testbed",
-    "deploy": "yarn build && firebase deploy"
+    "deploy": "yarn build && firebase deploy",
+    "build:html": "node -r esm ./bin/html.js"
   },
   "author": "Alex Barry",
   "license": "MIT"
