@@ -1,10 +1,23 @@
 extends ../layouts/main.pug
 
-block body
-  section.flex.flex-row.items-start.justify-start.w-full.my-40
-    img.flex-none.hidden.w-56.mr-4.border.border-gray-500( class="sm:block" src="../assets/alexbarry.jpg" class="" alt="A picture of me" )
+mixin section(title)
+  section.w-full.mt-24.mb-8.px-4
+    h2.block.text-3xl.pb-4.mb-4.border-b.border-b-gray-500= title
+    block
 
-    div.flex-grow.text-2xl
+mixin link(href)
+  a.underline.text-blue-500( href=href )
+    block
+
+mixin listLink(href)
+  li
+    +link(href)
+      block
+
+
+block body
+  +section('Hello')
+    p.text-2xl.leading-relaxed
       | Hi, my name's Alex, and I'm a
       |
       a.underline( href="https://vehikl.com" )
@@ -12,8 +25,80 @@ block body
         |
         strong.font-bold Vehikl
       | .
-      | I drink copious amounts of coffee, play video games, and most importantly (to some people), create software.
-      | You might know my partner in crime,
+    p.text-2xl.leading-relaxed
+      | I am a full stack webdeveloper, with an emphasis on simplicity.
+    p.text-2xl.leading-relaxed
+      | You might know my partner in life and crime,
       |
       a.font-bold.underline( href="https://erinnbarry.com" ) Erinn
-      | , and our super cute retired service dog, Harley, and adopted beagle-labrador mix Rufus.
+      | .
+    p.text-2xl.leading-relaxed
+      | We also have a super cute retired service dog, Harley, and adopted beagle-labrador mix Rufus.
+
+  .grid-cols-2( class="md:grid" )
+    +section('Skills')
+      p.text-gray-500.mb-2 Just some things I do, some of which I get paid for.
+      ol.list-disc.list-inside.text-xl
+        li Pair/Mob Programming
+        li Project Lead
+        li Test advocate
+        li Problem solving
+        li Service integrations
+        li Legacy code maintenance
+        li Agile
+        li Unconventional solutions
+        li Livestreaming
+
+    +section('Languages / Frameworks')
+      p.text-gray-500.mb-2 I can speak computer. Well, just write it, I guess.
+      ol.list-disc.list-inside.text-xl.ml-2
+        li Javascript/Ecma/Node
+        li PHP
+        li Ruby
+        li Dart
+        li C
+
+    +section('Frameworks|Libraries|Tools')
+      p.text-gray-500.mb-2 Things I use to make computers do by bidding.
+      ol.list-disc.list-inside.text-xl.ml-2
+        li React/React-Native
+        li Vue
+        li Hyperapp
+        li Redux
+        li Firebase
+        li Pug
+        li Ruby on Rails
+        li Laravel
+        li Express
+
+    +section('Courses')
+      p.text-gray-500.mb-2 Sometimes I create courses. Maybe just once...we'll see.
+      ol.list-disc.list-inside.text-xl
+        +listLink("/courses/hands-on-web-development-with-hyperapp.html") Hands on Web Development with Hyperapp
+
+    +section('Projects')
+      p.text-gray-500.mb-2 Some stuff that I've written that you might find interesting, unless you don't.
+      ol.list-disc.list-inside.text-xl
+        +listLink("https://ferp.mrozbarry.com") FerpJS
+        +listLink("https://mobti.me/") Mobtime
+        +listLink("/projects/declarativas") Declarativas
+
+    +section('Tech Friends')
+      p.text-gray-500.mb-2 People that I've worked with, semi-chronological.
+      ol.list-disc.list-inside.text-xl
+        +listLink("http://rapin.com/") Dave Rapin
+        +listLink("http://richbettridge.com") Rich Bettridge
+        +listLink("https://colindecarlo.github.io") Colin Decarlo
+        +listLink("https://felipeflor.com") Felipe Flor
+        +listLink("https://macv93.github.io/mannyCanarte/") Manny Canarte
+        +listLink("https://alisondrav.github.io/") Alisa Vynohradova
+        +listLink("https://andreyden.github.io/") Andrii Denysenko
+
+    +section('Social Media')
+      p.text-gray-500.mb-2 Feel free to follow me on social media websites. Unless that's not your thing.
+      ol.list-disc.list-inside.text-xl
+        +listLink("https://www.linkedin.com/in/alex-barry-4b033227") linkedin
+        +listLink("https://github.com/mrozbarry") github
+        +listLink("https://stackoverflow.com/users/661764/ozbarry") stackoverflow
+        +listLink("https://twitter.com/mrozbarry") twitter
+        +listLink("https://twitch.tv/mrozbarry") twitch
