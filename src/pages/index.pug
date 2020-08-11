@@ -30,6 +30,11 @@ block body
       +photo('/assets/harley-and-rufus.jpg', 'Harley and Rufus' )
       +photo('/assets/family-christmas.jpg', 'You can appreciate how hard it is to take a family photo with two dogs and a camera on a timer' )
 
+  +section('Streaming')
+    p.text-gray-500.mb-2 Curious if I'm up to something?
+    a(href="http://twitch.tv/mrozbarry")
+      img( src="http://streambadge.com/twitch/mrozbarry.png" width="300" height="64" alt="mrozbarry's Streambadge" )
+
   .grid-cols-2( class='md:grid' )
     include ../blocks/skills
     include ../blocks/languages
