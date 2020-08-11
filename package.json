@@ -2,13 +2,7 @@
   "name": "mrbarry.com",
   "version": "1.0.0",
   "description": "Personal and Professional portfolio",
-  "dependencies": {
-    "hyperapp": "^2.0.4",
-    "hyperapp-debug": "^1.0.0-beta.5",
-    "hyperapp-fx": "^2.0.0-beta.1"
-  },
   "devDependencies": {
-    "autoprefixer": "^9.7.6",
     "esm": "^3.2.25",
     "firebase-tools": "^7.0.0",
     "pug": "^3.0.0"
