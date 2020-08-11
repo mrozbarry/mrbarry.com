@@ -22,3 +22,67 @@ block htmlBody
 
   div.container.px-2.mx-auto.pb-16
     block body
+
+  script( type="module" ).
+    const modes = ['auto', 'light', 'dark'];
+
+    const darkModeButton = document.querySelector('button#dark-mode');
+    const currentMode = document.querySelector('#current-mode');
+
+    const theme = {
+      light: {
+        bg: 'bg-white',
+        text: 'text-gray-800',
+      },
+      dark: {
+        bg: 'bg-gray-800',
+        text: 'text-gray-200',
+      },
+    };
+
+
+    const setLocalStorageDarkMode = (value) => {
+      localStorage.setItem('dark-mode', value);
+      return value;
+    };
+
+    const getLocalStorageDarkMode = () => {
+      const value = localStorage.getItem('dark-mode');
+      return value || 'auto';
+    }
+
+    const determineDarkModeFromTime = () => {
+      const hour = (new Date()).getHours();
+      return hour < 6 || hour > 21;
+    };
+
+    const updateBody = (value) => {
+      const isDarkMode = value === 'auto'
+        ? determineDarkModeFromTime()
+        : value === 'dark';
+
+      document.body.classList.remove(
+        ...Object.values(theme.light),
+        ...Object.values(theme.dark),
+      );
+
+      const key = isDarkMode ? 'dark' : 'light';
+
+      document.body.classList.add(
+        theme[key].bg,
+        theme[key].text,
+      );
+      const index = Math.max(0, modes.indexOf(darkModeButton.getAttribute('data-mode')));
+      const nextIndex = (index + 1) % modes.length;
+      const nextMode = modes[nextIndex];
+
+      darkModeButton.innerText = `Switch to ${nextMode} mode`;
+      darkModeButton.setAttribute('data-mode', nextMode);
+      currentMode.innerText = `[theme: ${value}]`;
+    };
+
+    darkModeButton.addEventListener('click', (event) => {
+      updateBody(setLocalStorageDarkMode(event.target.getAttribute('data-mode')));
+    });
+
+    updateBody(setLocalStorageDarkMode(getLocalStorageDarkMode()));
