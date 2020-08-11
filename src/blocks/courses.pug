@@ -1,0 +1,6 @@
++section('Courses')
+  p.text-gray-500.mb-2 Sometimes I create courses. Maybe just once...we'll see.
+  ol.list-disc.list-inside.text-xl
+    each course in courses
+      +listLink(course.href)
+        = course.title

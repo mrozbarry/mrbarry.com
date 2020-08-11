@@ -1,0 +1,35 @@
+extends ../../layouts/main
+
+block body
+  +section('Hands on Web Development with Hyperapp')
+      div.leading-relaxed
+        p The main problems for developers of modern front ends are the number of concepts, managing side-effects, and bringing in large dependencies. These problems can make it seem impossible to get your application from the drawing board into the hands of customers.
+        p Reviewed by Jorge Bucaran, the creator of Hyperapp, this course will help you get started with Hyperapp to create web applications. This is an engaging course where all concepts are explained with the help of practical examples. Beginning with an overview of the Hyperapp micro-framework, with the help of practical examples, you’ll understand its straightforward API and functionalities.
+        p After building your app architecture, you’ll start building your real-world JavaScript application with Hyperapp. You’ll manage states with built-in state management in Hyperapp and use virtual DOM, which is essential for developing modern web applications. We’ll also cover the new features introduced in Hyperapp 2 and how they can help you improve web development You’ll also learn to maintain your code easily in Hyperapp.
+        p By the end of the course, you will be well-versed in using the simple but easy Hyperapp to develop web applications.
+
+      flex-row( class="sm:flex" )
+        img.w-auto.h-64.flex-grow-0.p-2.m-2.border.border-white-500( src="/assets/packt-course-image.png" alt="Packt Publishing Hands-On Web Development with Hyperapp V2" )
+        iframe.w-auto.h-64.flex-grow-0.p-2.m-2.border.border-white-500( src="https://www.youtube-nocookie.com/embed/pstOvP09t4U" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen )
+
+  .grid-cols-2( class="md:grid" )
+    +section('Where to find the course')
+      ol.list-disc.list-inside.text-xl
+        +listLink('https://www.packtpub.com/application-development/hands-web-development-hyperapp-v2-video', '_blank') Packt Publishing
+        +listLink('https://www.udemy.com/course/hands-on-web-development-with-hyperapp-v2/', '_blank') Udemy
+
+    +section('Course resources')
+      ol.list-disc.list-inside.text-xl
+        +listLink('https://github.com/PacktPublishing/Hands-On-Web-Development-with-Hyperapp-V2', '_blank') Course source code
+
+    +section('More About Hyperapp')
+      ol.list-disc.list-inside.text-xl
+        +listLink('https://github.com/jorgebucaran/hyperapp', '_blank') Hyperapp
+        +listLink('https://hyperappjs.herokuapp.com/', '_blank') Hyperapp on Slack
+        +listLink('https://twitter.com/jorgebucaran', '_blank') Jorge on Twitter
+        +listLink('https://github.com/jorgebucaran/hyperawesome', '_blank') Hyperapp Awesome List
+
+    +section('More Resources')
+      ol.list-disc.list-inside.text-xl
+        +listLink('https://medium.com/hyperapp/a-walk-through-hyperapp-2-b1f642fca172', '_blank') A walk through Hyperapp
+        +listLink('https://medium.com/@NickDodson/hyperapp-v2-in-under-5-minutes-7e9fa49f7f5', '_blank') Hyperapp in under 5 minutes

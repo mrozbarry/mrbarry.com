@@ -1,26 +1,15 @@
 extends ../layouts/main.pug
 
-mixin section(title)
-  section.w-full.mt-24.mb-8.px-4
-    h2.block.text-3xl.pb-4.mb-4.border-b.border-b-gray-500= title
-    block
-
-mixin link(href)
-  a.underline.text-blue-500( href=href )
-    block
-
-mixin listLink(href)
-  li
-    +link(href)
-      block
-
+mixin photo(href, alt)
+  a( href=href target='_blank' )
+    img.h-40.w-auto.p-2.m-2.border.border-white-500( src=href alt=alt )
 
 block body
   +section('Hello')
     p.text-2xl.leading-relaxed
       | Hi, my name's Alex, and I'm a
       |
-      a.underline( href="https://vehikl.com" )
+      a.underline( href='https://vehikl.com' target='_blank' )
         | Senior Software Developer at
         |
         strong.font-bold Vehikl
@@ -30,75 +19,37 @@ block body
     p.text-2xl.leading-relaxed
       | You might know my partner in life and crime,
       |
-      a.font-bold.underline( href="https://erinnbarry.com" ) Erinn
+      a.font-bold.underline( href='https://erinnbarry.com' target='_blank' ) Erinn
       | .
     p.text-2xl.leading-relaxed
       | We also have a super cute retired service dog, Harley, and adopted beagle-labrador mix Rufus.
 
-  .grid-cols-2( class="md:grid" )
-    +section('Skills')
-      p.text-gray-500.mb-2 Just some things I do, some of which I get paid for.
-      ol.list-disc.list-inside.text-xl
-        li Pair/Mob Programming
-        li Project Lead
-        li Test advocate
-        li Problem solving
-        li Service integrations
-        li Legacy code maintenance
-        li Agile
-        li Unconventional solutions
-        li Livestreaming
+    .flex.flex-row
+      +photo('/assets/alexbarry.jpg', "It's me!" )
+      +photo('/assets/alex-and-erinn.jpg', 'Erinn and I' )
+      +photo('/assets/harley-and-rufus.jpg', 'Harley and Rufus' )
+      +photo('/assets/family-christmas.jpg', 'You can appreciate how hard it is to take a family photo with two dogs and a camera on a timer' )
 
-    +section('Languages / Frameworks')
-      p.text-gray-500.mb-2 I can speak computer. Well, just write it, I guess.
-      ol.list-disc.list-inside.text-xl.ml-2
-        li Javascript/Ecma/Node
-        li PHP
-        li Ruby
-        li Dart
-        li C
-
-    +section('Frameworks|Libraries|Tools')
-      p.text-gray-500.mb-2 Things I use to make computers do by bidding.
-      ol.list-disc.list-inside.text-xl.ml-2
-        li React/React-Native
-        li Vue
-        li Hyperapp
-        li Redux
-        li Firebase
-        li Pug
-        li Ruby on Rails
-        li Laravel
-        li Express
-
-    +section('Courses')
-      p.text-gray-500.mb-2 Sometimes I create courses. Maybe just once...we'll see.
-      ol.list-disc.list-inside.text-xl
-        +listLink("/courses/hands-on-web-development-with-hyperapp.html") Hands on Web Development with Hyperapp
-
-    +section('Projects')
-      p.text-gray-500.mb-2 Some stuff that I've written that you might find interesting, unless you don't.
-      ol.list-disc.list-inside.text-xl
-        +listLink("https://ferp.mrozbarry.com") FerpJS
-        +listLink("https://mobti.me/") Mobtime
-        +listLink("/projects/declarativas") Declarativas
-
-    +section('Tech Friends')
-      p.text-gray-500.mb-2 People that I've worked with, semi-chronological.
-      ol.list-disc.list-inside.text-xl
-        +listLink("http://rapin.com/") Dave Rapin
-        +listLink("http://richbettridge.com") Rich Bettridge
-        +listLink("https://colindecarlo.github.io") Colin Decarlo
-        +listLink("https://felipeflor.com") Felipe Flor
-        +listLink("https://macv93.github.io/mannyCanarte/") Manny Canarte
-        +listLink("https://alisondrav.github.io/") Alisa Vynohradova
-        +listLink("https://andreyden.github.io/") Andrii Denysenko
+  .grid-cols-2( class='md:grid' )
+    include ../blocks/skills
+    include ../blocks/languages
+    include ../blocks/tools
+    include ../blocks/courses
+    include ../blocks/friends
+    include ../blocks/projects
 
     +section('Social Media')
       p.text-gray-500.mb-2 Feel free to follow me on social media websites. Unless that's not your thing.
       ol.list-disc.list-inside.text-xl
-        +listLink("https://www.linkedin.com/in/alex-barry-4b033227") linkedin
-        +listLink("https://github.com/mrozbarry") github
-        +listLink("https://stackoverflow.com/users/661764/ozbarry") stackoverflow
-        +listLink("https://twitter.com/mrozbarry") twitter
-        +listLink("https://twitch.tv/mrozbarry") twitch
+        +listLink('https://www.linkedin.com/in/alex-barry-4b033227', '_blank') linkedin
+        +listLink('https://github.com/mrozbarry', '_blank') github
+        +listLink('https://stackoverflow.com/users/661764/ozbarry', '_blank') stackoverflow
+        +listLink('https://twitch.tv/mrozbarry', '_blank') twitch
+        +listLink('https://twitter.com/mrozbarry', '_blank') twitter
+        +listLink('https://www.youtube.com/channel/UCJURsP2atEK8nVlQT6Qo0gQ', '_blank') youtube
+
+    +section('Other Links')
+      p.text-gray-500.mb-2 Some stuff that isn't necessarily tech-related.
+      ol.list-disc.list-inside.text-xl
+        +listLink('https://oldagechristianity.com', '_blank') Old Age Christianity podcast
+        +listLink('https://github.com/mrozbarry/christianity-blog', '_blank') My Christianity blog

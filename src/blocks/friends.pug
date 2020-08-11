@@ -1,0 +1,6 @@
++section('Tech Friends')
+  p.text-gray-500.mb-2 People that I've worked with, semi-chronological.
+  ol.list-disc.list-inside.text-xl
+    each friend in friends
+      +listLink(friend.href, '_blank')
+        = friend.title
