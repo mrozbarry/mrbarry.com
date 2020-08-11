@@ -1,0 +1,18 @@
+mixin listLink(href, target = "_self")
+  li
+    +link(href, target)
+      block
+
+mixin linkList(items)
+  ol.list-disc.list-inside.text-xl
+    each item in items
+      li
+        if item.href
+          +link(item.href)
+            = item.title
+        else
+          = item.title
+        if item.tags && item.tags.length > 0
+          .flex.flex-row.ml-4.mt-2
+            each tag in item.tags
+              .mr-2.mb-2.bg-gray-300.text-gray-800.px-2.rounded.text-sm= tag

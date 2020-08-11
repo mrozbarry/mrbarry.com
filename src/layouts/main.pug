@@ -1,5 +1,6 @@
 extends ./html5
 
+
 mixin section(title)
   section.w-full.mt-24.mb-8.px-4
     h2.block.text-3xl.pb-4.mb-4.border-b.border-b-gray-500= title
@@ -9,10 +10,8 @@ mixin link(href, target = "_self")
   a.underline.text-blue-500( href=href target=target )
     block
 
-mixin listLink(href, target = "_self")
-  li
-    +link(href, target)
-      block
+
+include ../components/linkList
 
 block htmlHead
   link( href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet")

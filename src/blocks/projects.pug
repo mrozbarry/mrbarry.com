@@ -1,6 +1,4 @@
 +section('Projects')
   p.text-gray-500.mb-2 Some stuff that I've written that you might find interesting, unless you don't.
   ol.list-disc.list-inside.text-xl
-    each project in projects 
-      +listLink(project.href, '_blank')
-        = project.title
+    +linkList(projects)

@@ -1,1 +1,5 @@
-export default (href, title) => ({ href, title });
+export default (href, title, tags = []) => ({
+  href,
+  title,
+  tags,
+});
