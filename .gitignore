@@ -3,3 +3,4 @@ dist
 .cache
 .firebase
 public/**/*.html
+firebase-debug.log
