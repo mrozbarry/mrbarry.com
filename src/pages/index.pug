@@ -32,8 +32,18 @@ block body
 
   +section('Streaming')
     p.text-gray-500.mb-2 Curious if I'm up to something?
-    a(href="http://twitch.tv/mrozbarry")
-      img( src="http://streambadge.com/twitch/mrozbarry.png" width="300" height="64" alt="mrozbarry's Streambadge" )
+    #twitch-offline
+      .p-2.rounded.bg-gray-700.text-gray-200.inline-flex.flex-row.items-center.justify-start
+        .h-2.w-2.rounded.bg-gray-800.mr-2
+        span I'm not streaming any live coding right now
+
+    #twitch-container.hidden
+      #twich-online
+        .p-2.rounded.bg-green-500.text-gray-200.inline-flex.flex-row.items-center.justify-start
+          .h-2.w-2.rounded.bg-red-500.mr-2
+          span I'm streaming, feel free to stop by and say "Hi"!
+
+      #twitch-embed
 
   .grid-cols-2( class='md:grid' )
     include ../blocks/skills
@@ -58,3 +68,30 @@ block body
       ol.list-disc.list-inside.text-xl
         +listLink('https://oldagechristianity.com', '_blank') Old Age Christianity podcast
         +listLink('https://github.com/mrozbarry/christianity-blog', '_blank') My Christianity blog
+
+  script( src='https://player.twitch.tv/js/embed/v1.js' )
+  script( type='module' ).
+    const twitchContainer = document.querySelector('#twitch-container');
+    const twitchOffline = document.querySelector('#twitch-offline');
+
+    const player = new Twitch.Player('twitch-embed', {
+      width: 400,
+      height: 300,
+      channel: 'mrozbarry',
+      parent: ['localhost', 'mrbarry.com'],
+    });
+
+    player.setMuted(true);
+    player.pause();
+
+    player.addEventListener(Twitch.Player.ONLINE, () => {
+      twitchContainer.classList.remove('hidden');
+      twitchOffline.classList.add('hidden');
+      player.play();
+    });
+
+    player.addEventListener(Twitch.Player.OFFLINE, () => {
+      twitchContainer.classList.add('hidden');
+      twitchOffline.classList.remove('hidden');
+    });
+
