@@ -9,27 +9,17 @@
   },
   "devDependencies": {
     "autoprefixer": "^9.7.6",
-    "ava": "^3.6.0",
-    "cssnano": "^4.1.10",
     "esm": "^3.2.25",
     "firebase-tools": "^7.0.0",
-    "parcel-bundler": "^1.12.3",
-    "postcss-cli": "^7.1.0",
-    "pug": "^3.0.0",
-    "sass": "^1.21.0",
-    "tailwindcss": "^1.2.0"
+    "pug": "^3.0.0"
   },
   "engines": {
     "node": ">= 12"
   },
   "scripts": {
-    "start": "parcel ./src/apps/index/index.html",
-    "start:test-bed": "parcel ./src/apps/test-bed/index.html",
-    "build:index": "parcel build ./src/apps/index/index.html",
-    "build:testbed": "parcel build ./src/apps/test-bed/index.html -d ./dist/test-bed/ --public-url /test-bed --no-minify",
-    "build": "yarn build:index && yarn build:testbed",
+    "start": "firebase serve",
     "deploy": "yarn build && firebase deploy",
-    "build:html": "node -r esm ./bin/html.js"
+    "build": "node -r esm ./bin/html.js"
   },
   "author": "Alex Barry",
   "license": "MIT"
