@@ -1,0 +1,119 @@
+extend ../../layouts/html5
+
+block htmlBody
+  #app
+
+  script( type="module" ).
+    import { app, h, text } from 'https://unpkg.com/hyperapp@2.0.8/hyperapp.js?module';
+    import { every } from 'https://unpkg.com/@hyperapp/time@0.1.0/hyperapp.time.js?module';
+    import { Http } from 'https://unpkg.com/hyperapp-fx@2.0.0-beta.1/src/index.js?module';
+    import withDebug from 'https://unpkg.com/hyperapp-debug@1.0.0-beta.5/withDebug.module.js?module';
+
+    const LOAD_STATUS = {
+      pending: 'pending',
+      success: 'success',
+      error: 'error',
+    };
+
+    const loadable = (status, data) => [LOAD_STATUS.success, LOAD_STATUS.error].indexOf(status) >= 0 ? [status, data] : [status, null]; const loadablePending = () => loadable(LOAD_STATUS.pending); const loadableSuccess = data => loadable(LOAD_STATUS.success, data);
+    const loadableError = err => loadable(LOAD_STATUS.error, err);
+    const loadableGet = (loadableTuple, on = {}) => {
+      const fn = on[loadableTuple[0]] || (() => null);
+      return fn(loadableTuple[1]);
+    };
+
+    // Basic Counter
+    const Add = state => ({ ...state, value: state.value + 1 });
+    const Sub = state => ({ ...state, value: state.value - 1 });
+
+    // Quotes
+    const SetQuoteOK = (state, response) => ({
+      ...state,
+      quote: loadableSuccess(response.content),
+    });
+    const SetQuoteERR = (state, response) => ({
+      ...state,
+      quote: loadableError(`Status ${response.status}`)
+    });
+    const GetQuote = state => [
+      {
+        ...state,
+        quote: loadablePending(),
+      },
+      Http({
+        url: 'https://api.quotable.io/random',
+        action: SetQuoteOK,
+        error: SetQuoteERR,
+      }),
+    ];
+
+    // Interval Counter
+    const IntervalToggle = state => ({ ...state, runInterval: !state.runInterval });
+    const IntervalTick = state => ({ ...state, intervalValue: state.intervalValue + 1 });
+
+    const Init = () => GetQuote({
+      value: 0,
+      quote: loadablePending(),
+      runInterval: false,
+      intervalValue: 0,
+    });
+
+    const box = (children) => h('div', { style: { margin: '8p16 0', borderLeft: '2px gray solid', padding: '16px', marginLeft: '8px' } }, children);
+    const testCase = ({ title, description }, children) => h('section', {}, [
+      h('section', {}, [
+        h('h2', {}, text(title)),
+        h('p', {}, text(description)),
+        box(children),
+      ]),
+    ]);
+
+    withDebug(app)({
+      init: Init,
+      view: state => h('article', {}, [
+        h('h1', {}, text('Hyperapp Debug Testbed')),
+        h('article', {}, [
+          h('p', {}, text('Welcome to the hyperapp debug dev tool test bed application.')),
+          h('p', {}, [
+            text(`If you don't have it already, install the `),
+            h('a', { href: 'https://addons.mozilla.org/en-US/firefox/addon/hyperapp-debug-dev-tools/', target: '_blank' }, text('firefox extension')),
+            text('. '),
+            text(`Once that's installed, open up your dev tools, and play with the app.`),
+            text(`You'll see you can debug actions, effects, and subscriptions, and more importantly, time travel the state of the application.`),
+          ]),
+        ]),
+
+        testCase({
+          title: 'Basic Counter',
+          description: 'Testing actions and commits',
+        }, [
+          h('button', { type: 'button', onclick: Sub }, text('-')),
+          h('strong', {}, text(state.value)),
+          h('button', { type: 'button', onclick: Add }, text('+')),
+        ]),
+
+        testCase({
+          title: 'Quote Loader',
+          description: 'Testing effects',
+        }, [
+          loadableGet(state.quote, {
+            pending: () => h('div', {}, text('...')),
+            success: quote => h('quote', {}, text(quote)),
+            error: err => h('div', {}, text(`ERROR: ${err.toString()}`)),
+          }),
+          h('button', { type: 'button', style: { display: 'block' }, onclick: GetQuote }, text('Get Quote')),
+        ]),
+
+        testCase({
+          title: 'Interval Counter',
+          description: 'Testing effects via subscriptions',
+        }, [
+          h('strong', {}, text(state.intervalValue)),
+          h('button', { type: 'button', style: { display: 'block' }, onclick: IntervalToggle }, text(state.runInterval ? 'Turn OFF Interval' : 'Turn ON Interval')),
+        ]),
+
+      ]),
+      subscriptions: state => [
+        state.runInterval && every(1000, IntervalTick),
+      ],
+      node: document.getElementById('app'),
+    });
