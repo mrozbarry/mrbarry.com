@@ -3,10 +3,10 @@ extends ../../layouts/main
 block naked
   +section('Code Playground')
     .py-2
-      button.bg-white.text-gray-800.font-semibold.py-2.px-4.border.border-gray-400.rounded.shadow#previewButton( class=" hover:bg-gray-100" )
+      button.bg-white.text-gray-800.font-semibold.py-2.px-4.border.border-gray-400.rounded.shadow#preview-button( class=" hover:bg-gray-100" )
         | Preview
     #layout.grid.grid-cols-2
-      #editor.w-full.border.border-gray-300.text-lg( style="height: 60vh" )
+      #editor.w-full.border.border-gray-300.text-md( style="height: 60vh" )
         | import { render, c } from 'https://unpkg.com/declarativas?module=1';
         | const canvas = document.querySelector('canvas');
         | canvas.width = window.innerWidth;
@@ -17,21 +17,12 @@ block naked
           | Waiting for code...
         iframe#preview-frame.w-full.h-full.hidden
 
-
-
-
   template#template
     doctype html
     head
       style
-        | html, body {
-        |   padding: 0;
-        |   margin: 0;
-        | }
-        | body {
-        |   width: 100vw;
-        |   height: 100vh;
-        | }
+        | html, body { padding: 0; margin: 0; }
+        | body { width: 100vw; height: 100vh; }
     body
       canvas
       script( type="module" ).
@@ -46,55 +37,49 @@ block naked
     const previewContainer = document.querySelector('#preview-container');
     const previewStatus = previewContainer.querySelector('#preview-status');
     const previewFrame = previewContainer.querySelector('#preview-frame');
+    const template = document.querySelector('template#template').innerHTML;
+
+    const makeDataUrl = () => {
+      const linesOfCode = editor.getValue().split('\n');
+      const isImportRegexp = /import /;
+
+      const { imports, source } = linesOfCode.reduce((memo, line) => {
+        const statements = line.split(';');
+
+        return {
+          imports: [...memo.imports, ...statements.filter(s => isImportRegexp.test(s))],
+          source: [...memo.source, statements.filter(s => !isImportRegexp.test(s)).join(';')],
+        };
+      }, { imports: [], source: [] });
+
+      const code = `${imports.join('\n')}
+      try {
+        ${source.join('\n')}
+      } catch (err) {
+        parent.postMessage({ type: 'error', message: err.toString() }, '*');
+      }`;
+
+      return `data:text/html;charset=utf-8;base64,${btoa(template.replace('//--code--', code))}`;
+    };
 
     const showPreviewStatus = (html) => {
       previewFrame.classList.add('hidden');
       previewStatus.classList.remove('hidden');
       previewStatus.innerHTML = html;
     };
-    const hidePreviewStatus = () => {
-      previewStatus.classList.add('hidden');
-    };
+    const hidePreviewStatus = () => previewStatus.classList.add('hidden');
 
-    const template = document.querySelector('template#template').innerHTML;
     const showPreview = () => {
-      const linesOfCode = editor.getValue().split('\n');
-      const isImportRegexp = /import /;
-
-      const { imports, source } = linesOfCode.reduce((memo, line) => {
-        const statements = line.split(';');
-        const newImports = statements.filter(s => isImportRegexp.test(s));
-        const newSource = statements.filter(s => !isImportRegexp.test(s));
-
-        return {
-          imports: [...memo.imports, ...newImports],
-          source: [...memo.source, newSource.join(';')],
-        };
-      }, { imports: [], source: [] });
-
-      const code = `${imports.join('\n')}
-
-      try {
-        ${source.join('\n')}
-      } catch (err) {
-        parent.postMessage({ type: 'error', message: err.toString() }, '*');
-      }
-      `;
-
-
-      const base64Source= btoa(template.replace('//--code--', code));
-
       hidePreviewStatus();
       previewFrame.classList.remove('hidden');
-      previewFrame.src = `data:text/html;charset=utf-8;base64,${base64Source}`;
+      previewFrame.src = makeDataUrl();
     };
 
-    const previewButton = document.querySelector('button#previewButton');
-    previewButton.addEventListener('click', showPreview);
+    document
+      .querySelector('button#preview-button')
+      .addEventListener('click', showPreview);
 
     window.addEventListener('message', (event) => {
-      console.log('message posted', event);
-      if (event.data.type === 'error') {
-        showPreviewStatus('Oops! Your code has some errors.');
-      }
+      if (event.data.type !== 'error') return;
+      showPreviewStatus('Oops! Your code has some errors.');
     }, false);
