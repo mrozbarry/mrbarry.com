@@ -19,8 +19,10 @@ block htmlHead
 block htmlBody
   include ../components/navigation
 
-  div.container.px-2.mx-auto.pb-16
-    block body
+  block naked
+
+    div.container.px-2.mx-auto.pb-16
+      block body
 
   script( type="module" ).
     const modes = ['auto', 'light', 'dark'];
