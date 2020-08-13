@@ -1,6 +1,6 @@
 import pug from 'pug';
 import path from 'path';
-import { promises as fs, existsSync, mkdirSync } from 'fs';
+import { promises as fs, existsSync, mkdirSync, readFileSync } from 'fs';
 
 import skills from './data/skills';
 import languages from './data/languages';
@@ -12,11 +12,17 @@ import friends from './data/friends';
 const rootPath = path.resolve(__dirname, '..');
 const sourcePath = path.join(rootPath, 'src');
 const publicPath = path.join(rootPath, 'public');
+const playgroundPath = path.join(rootPath, 'src', 'playground');
 
 const pages = [
   { src: 'index.pug', props: { skills, languages, tools, friends, courses, projects } },
   { src: 'projects/index.pug', props: { projects } },
-  { src: 'projects/playground.pug', props: {} },
+  {
+    src: 'projects/playground.pug',
+    props: {
+      initialSource: readFileSync(path.join(playgroundPath, 'declarativas-text.js'), { encoding: 'utf-8' }),
+    },
+  },
   { src: 'courses/index.pug', props: { courses } },
   { src: 'courses/hands-on-web-development-with-hyperapp.pug', props: {} },
   { src: 'test-bed/index.pug', props: {} },

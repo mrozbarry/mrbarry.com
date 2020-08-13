@@ -6,11 +6,7 @@ block naked
       button.bg-white.text-gray-800.font-semibold.py-2.px-4.border.border-gray-400.rounded.shadow#preview-button( class=" hover:bg-gray-100" )
         | Preview
     #layout.grid.grid-cols-2
-      #editor.w-full.border.border-gray-300.text-md( style="height: 60vh" )
-        | import { render, c } from 'https://unpkg.com/declarativas?module=1';
-        | const canvas = document.querySelector('canvas');
-        | canvas.width = window.innerWidth;
-        | canvas.height = window.innerHeight;
+      #editor.w-full.border.border-gray-300.text-md( style="height: 60vh" )= initialSource
 
       #preview-container.h-full
         #preview-status.bg-purple-700.text-gray-300.flex.flex-col.justify-center.items-center.text-2xl.font-bold.h-full
