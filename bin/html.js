@@ -15,6 +15,7 @@ const publicPath = path.join(rootPath, 'public');
 
 const pages = [
   { src: 'index.pug', props: { skills, languages, tools, friends, courses, projects } },
+  { src: 'testimony.pug', props: {} },
   { src: 'projects/index.pug', props: { projects } },
   { src: 'courses/index.pug', props: { courses } },
   { src: 'courses/hands-on-web-development-with-hyperapp.pug', props: {} },
