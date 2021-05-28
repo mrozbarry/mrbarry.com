@@ -9,14 +9,14 @@ block body
     p.text-2xl.leading-relaxed
       | Hi, my name's Alex, and I'm a
       |
-      a.underline( href='/testimony.html' ) Jesus-following
+      a.underline.text-blue-500( href='/testimony.html' ) Jesus-following
       |
       | software developer.
 
     p.text-2xl.leading-relaxed
       | Currently, I'm a
       |
-      a.underline( href='https://vehikl.com' target='_blank' )
+      a.underline.text-blue-500( href='https://vehikl.com' target='_blank' )
         | Senior Software Developer at
         |
         strong.font-bold Vehikl
@@ -26,10 +26,14 @@ block body
     p.text-2xl.leading-relaxed
       | You might know my partner in life and crime,
       |
-      a.font-bold.underline( href='https://erinnbarry.com' target='_blank' ) Erinn
+      a.underline.text-blue-500( href='https://erinnbarry.com' target='_blank' ) Erinn
+      | . You might even know that we are expecting
+      |
+      a.underline.text-blue-500( href='https://baby.mrbarry.com' target='_blank' ) our first baby
       | .
+
     p.text-2xl.leading-relaxed
-      | We also have a super cute retired service dog, Harley, and adopted beagle-labrador mix Rufus.
+      | We have an adopted beagle-labrador mix Rufus. Sadly, we recently lost Erinn's service dog, Harley, to cancer.
 
     .flex.flex-row.flex-wrap
       +photo('/assets/alexbarry.jpg', "It's me!" )
