@@ -1,4 +1,4 @@
-import make from './_item';
+import make from './_item.js';
 
 export default [
   make(

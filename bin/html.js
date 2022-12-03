@@ -1,15 +1,16 @@
 import pug from 'pug';
 import path from 'path';
 import { promises as fs, existsSync, mkdirSync } from 'fs';
+import process from 'process';
 
-import skills from './data/skills';
-import languages from './data/languages';
-import tools from './data/tools';
-import courses from './data/courses';
-import projects from './data/projects';
-import friends from './data/friends';
+import skills from './data/skills.js';
+import languages from './data/languages.js';
+import tools from './data/tools.js';
+import courses from './data/courses.js';
+import projects from './data/projects.js';
+import friends from './data/friends.js';
 
-const rootPath = path.resolve(__dirname, '..');
+const rootPath = process.cwd(); //path.resolve(__dirname, '..');
 const sourcePath = path.join(rootPath, 'src');
 const publicPath = path.join(rootPath, 'public');
 
