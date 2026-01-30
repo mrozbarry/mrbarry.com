@@ -16,8 +16,9 @@ const publicPath = path.join(rootPath, 'public');
 
 const pages = [
   { src: 'index.pug', props: { skills, languages, tools, friends, courses, projects } },
-  { src: 'testimony.pug', props: {} },
-  { src: 'the-gospel.pug', props: {} },
+  { src: 'faith/good-news.pug', props: {} },
+  { src: 'faith/get-off-porn.pug', props: {} },
+  { src: 'faith/get-off-porn.pug', props: {} },
   { src: 'projects/index.pug', props: { projects } },
   { src: 'courses/index.pug', props: { courses } },
   { src: 'courses/hands-on-web-development-with-hyperapp.pug', props: {} },
@@ -32,7 +33,7 @@ const convertMarkdownLinks = (source) => {
   });
 }
 
-Promise.all(pages.map(({ src, props }) => {
+Promise.allSettled(pages.map(({ src, props }) => {
   const dest = src.replace(/pug$/, 'html');
   const view = pug.compileFile(path.join(sourcePath, 'pages', src));
   const destPath = path.join(publicPath, path.dirname(dest));
@@ -42,5 +43,5 @@ Promise.all(pages.map(({ src, props }) => {
   console.log('writing', path.join(publicPath, dest));
   return fs.writeFile(path.join(publicPath, dest), convertMarkdownLinks(view(props)), 'utf8');
 }))
-  .then(() => console.log('pages built'))
+  .then((results) => console.log('pages built', results))
   .catch((err) => console.error('unable to build pages', err));

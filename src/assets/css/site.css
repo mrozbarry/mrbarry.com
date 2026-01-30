@@ -1,0 +1,8 @@
+@import "tailwindcss" source("../../");
+
+@layer components {
+    a[href] {
+        color: var(--color-blue-400);
+        text-decoration: underline;
+    }
+}

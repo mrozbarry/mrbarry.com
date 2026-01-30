@@ -9,7 +9,7 @@ block body
     p.text-2xl.leading-relaxed
       | Hi, my name's Alex, and I'm a
       |
-      a.underline.text-blue-500( href='/testimony.html' ) Jesus-following
+      a.underline.text-blue-500( href='/faith/good-news.html' ) Jesus-following
       |
       | software developer.
 
@@ -27,11 +27,7 @@ block body
       | You might know my partner in life and crime,
       |
       a.underline.text-blue-500( href='https://erinnbarry.com' target='_blank' ) Erinn
-      | . You might even know that we are expecting our
-      |
-      strong second
-      |
-      | baby.
+      | . I have a son (2021), and two daughters (2023, 2025).
 
     p.text-2xl.leading-relaxed
       | We have an adopted beagle-labrador mix Rufus. Sadly, we recently lost Erinn's service dog, Harley, to cancer.
@@ -40,8 +36,6 @@ block body
       +photo('/assets/alexbarry.jpg', "It's me!" )
       +photo('/assets/alex-and-erinn.jpg', 'Erinn and I' )
       +photo('/assets/harley-and-rufus.jpg', 'Harley and Rufus' )
-      +photo('/assets/family-christmas.jpg', 'You can appreciate how hard it is to take a family photo with two dogs and a camera on a timer' )
-      +photo('/assets/asher-park.jpg', 'Here is my son, Asher, playing in the park with me' )
 
   +section('Streaming')
     p.text-gray-500.mb-2 Curious if I'm up to something?
@@ -75,12 +69,6 @@ block body
         +listLink('https://twitch.tv/mrozbarry', '_blank') twitch
         +listLink('https://twitter.com/mrozbarry', '_blank') twitter
         +listLink('https://www.youtube.com/channel/UCJURsP2atEK8nVlQT6Qo0gQ', '_blank') youtube
-
-    +section('Other Links')
-      p.text-gray-500.mb-2 Some stuff that isn't necessarily tech-related.
-      ol.list-disc.list-inside.text-xl
-        +listLink('https://oldagechristianity.com', '_blank') Old Age Christianity podcast
-        +listLink('https://github.com/mrozbarry/christianity-blog', '_blank') My Christianity blog
 
   script( src='https://player.twitch.tv/js/embed/v1.js' )
   script( type='module' ).
